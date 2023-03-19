@@ -1,4 +1,4 @@
-package com.natiqhaciyef.datastructurealgorithms.kotlin.advanced.annotations
+package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.annotations
 
 // Creating Annotation
 @Target(AnnotationTarget.CLASS, AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.PROPERTY)
