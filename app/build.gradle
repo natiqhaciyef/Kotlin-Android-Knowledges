@@ -92,6 +92,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
+    implementation 'com.squareup.moshi:moshi:1.14.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
 
     //Dagger hilt implementation
     implementation "com.google.dagger:hilt-android:2.44"
