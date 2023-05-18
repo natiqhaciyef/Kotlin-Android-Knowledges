@@ -1,5 +1,6 @@
 package com.natiqhaciyef.kotlinandroidknowledges.android.tools.notification
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -25,6 +26,35 @@ object AppNotification {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
+    fun provideNotificationBuilderWithLockScreen(
+        notificationModel: NotificationModel,
+        context: Context
+    ) =
+        NotificationCompat.Builder(context, ID)
+            .setContentTitle(notificationModel.title)
+            .setContentText(notificationModel.description)
+            .setSmallIcon(R.drawable.app_ring)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .build()
+
+    fun provideNotificationBuilderWithPrivate(
+        notificationModel: NotificationModel,
+        context: Context
+    ) =
+        NotificationCompat.Builder(context, ID)
+            .setContentTitle(notificationModel.title)
+            .setContentText(notificationModel.description)
+            .setSmallIcon(R.drawable.app_ring)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+            .setPublicVersion(
+                Notification.Builder(context, ID)
+                    .setContentTitle("Hidden")
+                    .setContentText("Unlock see the message")
+                    .build()
+            )
+            .build()
 
     fun provideNotificationManagerChannel(context: Context): NotificationManagerCompat {
         val notificationManager = NotificationManagerCompat
@@ -33,5 +63,4 @@ object AppNotification {
 
         return notificationManager
     }
-
 }

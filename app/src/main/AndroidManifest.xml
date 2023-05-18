@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".android.tools.AlertDialogActivity"
+            android:name=".android.tools.alert_dialog.AlertDialogActivity"
             android:exported="false" />
         <activity
             android:name=".android.network.NetworkActivity"

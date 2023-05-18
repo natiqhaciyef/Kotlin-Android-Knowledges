@@ -19,13 +19,19 @@ class NotificationActivity : AppCompatActivity() {
         setContentView(binding.root)
         var count = 0
 
-        binding.button.setOnClickListener {
+        binding.buttonSend.setOnClickListener {
             if (count % 2 == 0)
-                displayNotification()
+//                displayNotification()
+                displayNotificationWithLockScreen()
             else
                 updateNotification()
             count += 1
         }
+
+        binding.buttonEnd.setOnClickListener {
+           cancelNotification()
+        }
+
     }
 
     private fun displayNotification() {
@@ -85,5 +91,29 @@ class NotificationActivity : AppCompatActivity() {
                 )
             )
 
+    }
+
+    private fun cancelNotification() {
+        AppNotification
+            .provideNotificationManagerChannel(this@NotificationActivity)
+            .cancel(1)
+    }
+
+    private fun displayNotificationWithLockScreen(){
+        val notificationMessage = NotificationModel(
+            title = "From Techtive.az",
+            description = "Salam dostlar, bu gun Android development telemindeyik",
+            smallIcon = 0,
+            largeIcon = 0
+        )
+        AppNotification
+            .provideNotificationManagerChannel(this@NotificationActivity)
+            .notify(
+                1,
+                AppNotification.provideNotificationBuilderWithLockScreen(
+                    notificationMessage,
+                    this@NotificationActivity
+                )
+            )
     }
 }
