@@ -19,8 +19,11 @@
         android:theme="@style/Theme.KotlinAndroidKnowledges"
         tools:targetApi="31">
         <activity
-            android:name=".android.tools.notification.NotificationActivity"
-            android:exported="true" >
+            android:name=".android.local_db.data_store.DSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".android.tools.work_manager.WorkManagerActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,13 +31,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".android.tools.notification.NotificationActivity"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
             android:name=".android.tools.alert_dialog.AlertDialogActivity"
             android:exported="false" />
         <activity
             android:name=".android.network.NetworkActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".android.legacy_tools.broadcast_receiver.TestBroadcastReceiverActivity"
             android:exported="true">

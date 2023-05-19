@@ -33,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 }
@@ -104,4 +104,16 @@ dependencies {
     //Animation Library
     implementation "com.airbnb.android:lottie:5.2.0"
 
+
+    // Kotlin + coroutines
+    def work_version = "2.8.1"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    // Data store Preferences
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Lifecycle component & Kotlin coroutines components
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 }
