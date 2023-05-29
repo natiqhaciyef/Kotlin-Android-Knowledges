@@ -7,6 +7,7 @@ import androidx.work.Data
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import com.natiqhaciyef.kotlinandroidknowledges.R
@@ -29,19 +30,29 @@ class WorkManagerActivity : AppCompatActivity() {
             .setRequiresDeviceIdle(false)
             .build()
 
-        val workRequest: WorkRequest = OneTimeWorkRequestBuilder<DatabaseRefreshWorker>()
+        val workRequest = OneTimeWorkRequestBuilder<DatabaseRefreshWorker>()
             .setConstraints(constraints)
             .setInputData(data)
             .addTag("Worker 1")
             .setInitialDelay(5, TimeUnit.MINUTES)
             .build()
 
-        val periodicWorkRequest = PeriodicWorkRequestBuilder<DatabaseRefreshWorker>(Duration.ofMinutes(15))
-            .setConstraints(constraints)
-            .setInputData(data)
-            .build()
+        val periodicWorkRequest =
+            PeriodicWorkRequestBuilder<DatabaseRefreshWorker>(Duration.ofMinutes(15))
+                .setConstraints(constraints)
+                .setInputData(data)
+                .build()
 
         WorkManager.getInstance(this).enqueue(periodicWorkRequest)
 
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(periodicWorkRequest.id)
+            .observe(this) { workInfo ->
+                println(workInfo.state == WorkInfo.State.ENQUEUED)
+            }
+
+        WorkManager.getInstance(this).cancelWorkById(periodicWorkRequest.id)
+
+        WorkManager.getInstance(this).beginWith(workRequest)
+            .then(workRequest).enqueue()
     }
 }
