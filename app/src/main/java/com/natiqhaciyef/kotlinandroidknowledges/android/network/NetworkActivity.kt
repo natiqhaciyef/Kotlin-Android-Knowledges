@@ -36,14 +36,7 @@ class NetworkActivity : AppCompatActivity() {
     }
 
     fun loadDataWithCall() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val service = retrofit.create(RetrofitService::class.java)
-        val call = service.getAllCountriesCall()
-
+        val call = RetrofitCallService.service.getAllCountriesCall()
         call.enqueue(object : Callback<List<CountryDataClass>> {
             override fun onResponse(
                 call: Call<List<CountryDataClass>>,
@@ -68,16 +61,8 @@ class NetworkActivity : AppCompatActivity() {
     }
 
     fun loadDataWithRxJava() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
-            .create(RetrofitService::class.java)
-
-
         compositeDisposable?.add(
-            retrofit.getAllCountriesRxJava()
+            RxJavaService.retrofit.getAllCountriesRxJava()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -88,16 +73,9 @@ class NetworkActivity : AppCompatActivity() {
     }
 
     fun loadDataWithCoroutines() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val service = retrofit.create(RetrofitService::class.java)
-
         CoroutineScope(Dispatchers.Main).launch {
             withContext(Dispatchers.IO) {
-                val list = service.getAllCountriesCoroutine()
+                val list = CoroutineService.service.getAllCountriesCoroutine()
                 println(list)
             }
         }
