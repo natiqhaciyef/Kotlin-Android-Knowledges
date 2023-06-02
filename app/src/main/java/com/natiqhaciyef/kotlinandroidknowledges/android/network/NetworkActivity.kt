@@ -3,6 +3,12 @@ package com.natiqhaciyef.kotlinandroidknowledges.android.network
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.natiqhaciyef.kotlinandroidknowledges.R
+import com.natiqhaciyef.kotlinandroidknowledges.android.network.learn.CoroutineService
+import com.natiqhaciyef.kotlinandroidknowledges.android.network.learn.CountryDataClass
+import com.natiqhaciyef.kotlinandroidknowledges.android.network.learn.RetrofitCallService
+import com.natiqhaciyef.kotlinandroidknowledges.android.network.learn.RxJavaService
+import com.natiqhaciyef.kotlinandroidknowledges.android.network.practice.RetrofitConfig
+import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityNetworkBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -13,11 +19,9 @@ import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 
 class NetworkActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityNetworkBinding
     private val BASE_URL = "https://raw.githubusercontent.com/"
     private lateinit var list: MutableList<CountryDataClass>
 
@@ -26,13 +30,28 @@ class NetworkActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_network)
+        binding = ActivityNetworkBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         list = mutableListOf()
         compositeDisposable = CompositeDisposable()
 //        loadDataWithCall()
 //        loadDataWithRxJava()
 //        loadDataWithCoroutines()
 
+        binding.getData.setOnClickListener {
+            CoroutineScope(Dispatchers.Main).launch{
+                withContext(Dispatchers.IO){
+                    practice()
+                }
+            }
+        }
+
+    }
+
+    private suspend fun practice(){
+        val data = RetrofitConfig.config.getAllRandomRecipes()
+        println(data)
     }
 
     fun loadDataWithCall() {

@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.network
+package com.natiqhaciyef.kotlinandroidknowledges.android.network.learn
 
 import io.reactivex.Observable
 import retrofit2.Call

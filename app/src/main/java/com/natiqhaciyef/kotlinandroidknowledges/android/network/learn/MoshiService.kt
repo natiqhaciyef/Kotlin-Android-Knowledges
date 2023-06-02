@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.network
+package com.natiqhaciyef.kotlinandroidknowledges.android.network.learn
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.network
+package com.natiqhaciyef.kotlinandroidknowledges.android.network.learn
 
 data class CountryDataClass(
     val capital: String,

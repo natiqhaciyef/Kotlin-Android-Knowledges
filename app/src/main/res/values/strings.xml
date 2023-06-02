@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Kotlin Android Knowledges</string>
+    <string name="get">Get</string>
 </resources>
