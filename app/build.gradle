@@ -53,42 +53,41 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    //Room db
+    // Room db
     implementation "androidx.room:room-runtime:2.5.0"
     kapt "androidx.room:room-compiler:2.5.0"
     implementation "androidx.room:room-ktx:2.5.0"
 
     // RxJava 3
     implementation("androidx.room:room-rxjava3:2.5.1")       //rxjava
-
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 
     // Okhttp logging
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
 
-    //Navigation
+    // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
-    //Fragment ktx
+    // Fragment ktx
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
 
-    //Coroutines
+    // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
-    //View Model Lifecycle
+    // View Model Lifecycle
     def lifecycle_version = "2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    //Image loader library
+    // Image loader library
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     kapt 'com.github.bumptech.glide:compiler:4.13.2'
 
-    //Retrofit library - Logging
+    // Retrofit library - Logging
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
@@ -97,16 +96,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
 
-
-    //Dagger hilt implementation
+    // Dagger hilt implementation
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-android-compiler:2.44"
 
-    //Animation Library
+    // Animation Library
     implementation "com.airbnb.android:lottie:5.2.0"
 
-
-    // Kotlin + coroutines
+    // Work manager
     def work_version = "2.8.1"
     implementation "androidx.work:work-runtime-ktx:$work_version"
 
@@ -117,4 +114,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    // dependency for exoplayer
+    def exoPlayer = "2.18.7"
+    implementation "com.google.android.exoplayer:exoplayer:$exoPlayer"
+    implementation "com.google.android.exoplayer:exoplayer-core:$exoPlayer"
+    implementation "com.google.android.exoplayer:exoplayer-dash:$exoPlayer"
+    implementation "com.google.android.exoplayer:exoplayer-hls:$exoPlayer"
+    implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$exoPlayer"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayer"
 }

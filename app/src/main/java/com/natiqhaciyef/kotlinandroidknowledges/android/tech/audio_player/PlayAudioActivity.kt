@@ -1,11 +1,10 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.permissions.play_audio
+package com.natiqhaciyef.kotlinandroidknowledges.android.tech.audio_player
 
 import android.media.AudioManager
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.natiqhaciyef.kotlinandroidknowledges.R
 import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityPlayAudioBinding
 import java.lang.Exception
 
