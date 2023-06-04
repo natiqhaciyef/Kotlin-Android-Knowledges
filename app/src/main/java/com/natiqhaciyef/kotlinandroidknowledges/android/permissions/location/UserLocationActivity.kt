@@ -3,13 +3,13 @@ package com.natiqhaciyef.kotlinandroidknowledges.android.permissions.location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.natiqhaciyef.kotlinandroidknowledges.R
-import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityMapsBinding
+import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityUserLocationBinding
 
-class MapsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMapsBinding
+class UserLocationActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityUserLocationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMapsBinding.inflate(layoutInflater)
+        binding = ActivityUserLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }

@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.permissions.location.MapsActivity">
-
+    tools:context=".android.permissions.location.UserLocationActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.natiqhaciyef.kotlinandroidknowledges.android.permissions.location.MapsFragment"
+        android:name="com.natiqhaciyef.kotlinandroidknowledges.android.permissions.location.UserLocationFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,5 +16,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
