@@ -1,14 +1,7 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tools.notification
+package com.natiqhaciyef.kotlinandroidknowledges.android.notification
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.net.toUri
-import com.natiqhaciyef.kotlinandroidknowledges.R
 import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityNotificationBinding
 
 class NotificationActivity : AppCompatActivity() {
@@ -41,8 +34,7 @@ class NotificationActivity : AppCompatActivity() {
             smallIcon = 0,
             largeIcon = 0
         )
-        AppNotification
-            .provideNotificationManagerChannel(this@NotificationActivity)
+        AppNotification.provideNotificationManagerChannel(this@NotificationActivity)
             .notify(
                 1,
                 AppNotification.provideNotificationBuilder(
@@ -61,8 +53,7 @@ class NotificationActivity : AppCompatActivity() {
             smallIcon = 0,
             largeIcon = 0
         )
-        AppNotification
-            .provideNotificationManagerChannel(this@NotificationActivity)
+        AppNotification.provideNotificationManagerChannel(this@NotificationActivity)
             .notify(
                 1,
                 AppNotification.provideNotificationBuilder(
@@ -81,8 +72,7 @@ class NotificationActivity : AppCompatActivity() {
             smallIcon = 0,
             largeIcon = 0
         )
-        AppNotification
-            .provideNotificationManagerChannel(this@NotificationActivity)
+        AppNotification.provideNotificationManagerChannel(this@NotificationActivity)
             .notify(
                 1,
                 AppNotification.provideNotificationBuilder(
@@ -94,8 +84,7 @@ class NotificationActivity : AppCompatActivity() {
     }
 
     private fun cancelNotification() {
-        AppNotification
-            .provideNotificationManagerChannel(this@NotificationActivity)
+        AppNotification.provideNotificationManagerChannel(this@NotificationActivity)
             .cancel(1)
     }
 
@@ -106,8 +95,7 @@ class NotificationActivity : AppCompatActivity() {
             smallIcon = 0,
             largeIcon = 0
         )
-        AppNotification
-            .provideNotificationManagerChannel(this@NotificationActivity)
+        AppNotification.provideNotificationManagerChannel(this@NotificationActivity)
             .notify(
                 1,
                 AppNotification.provideNotificationBuilderWithLockScreen(

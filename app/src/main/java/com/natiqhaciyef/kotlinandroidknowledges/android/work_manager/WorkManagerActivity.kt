@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tools.work_manager
+package com.natiqhaciyef.kotlinandroidknowledges.android.work_manager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +9,6 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import androidx.work.WorkRequest
-import com.natiqhaciyef.kotlinandroidknowledges.R
 import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityWorkManagerBinding
 import java.time.Duration
 import java.util.concurrent.TimeUnit

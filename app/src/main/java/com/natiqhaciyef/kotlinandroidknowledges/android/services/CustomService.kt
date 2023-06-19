@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.legacy_tools.services
+package com.natiqhaciyef.kotlinandroidknowledges.android.services
 
 import android.app.Service
 import android.content.Intent

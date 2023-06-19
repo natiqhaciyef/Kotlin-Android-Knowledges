@@ -19,7 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinAndroidKnowledges"
         tools:targetApi="31" >
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -35,11 +34,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDqIBd6VcWfIxDB8ks_JSqjQ34ucIScjso" />
 
-        <service android:name=".android.legacy_tools.services.CustomService" />
+        <service android:name=".android.services.CustomService" />
 
-        <receiver android:name=".android.legacy_tools.broadcast_receiver.AirPlaneModeReceiver" />
+        <receiver android:name=".android.broadcast_receiver.AirPlaneModeReceiver" />
         <receiver
-            android:name=".android.legacy_tools.broadcast_receiver.TimeZoneChangeReceiver"
+            android:name=".android.broadcast_receiver.TimeZoneChangeReceiver"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
@@ -49,18 +48,14 @@
         <activity
             android:name=".android.permissions.location.UserLocationActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".android.permissions.location.MapsActivity"
             android:exported="true" />
 
         <activity
-            android:name=".android.tech.video_player.VideoPlayerActivity"
+            android:name=".android.video_player.VideoPlayerActivity"
             android:exported="true" >
 
         </activity>
@@ -68,22 +63,22 @@
             android:name=".android.local_db.data_store.DSActivity"
             android:exported="true" />
         <activity
-            android:name=".android.tools.work_manager.WorkManagerActivity"
+            android:name=".android.work_manager.WorkManagerActivity"
             android:exported="true" />
         <activity
-            android:name=".android.tools.notification.NotificationActivity"
+            android:name=".android.notification.NotificationActivity"
             android:exported="true" />
         <activity
-            android:name=".android.tools.alert_dialog.AlertDialogActivity"
+            android:name=".android.alert_dialog.AlertDialogActivity"
             android:exported="true" />
         <activity
             android:name=".android.network.NetworkActivity"
             android:exported="true" />
         <activity
-            android:name=".android.legacy_tools.broadcast_receiver.TestBroadcastReceiverActivity"
+            android:name=".android.broadcast_receiver.TestBroadcastReceiverActivity"
             android:exported="true" />
         <activity
-            android:name=".android.tech.audio_player.PlayAudioActivity"
+            android:name=".android.audio_player.PlayAudioActivity"
             android:exported="true" />
         <activity
             android:name=".android.permissions.contact.ContactActivity"
@@ -93,7 +88,13 @@
             android:exported="true" />
         <activity
             android:name=".android.permissions.read_external_storage.ReadExternalStorageActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" >

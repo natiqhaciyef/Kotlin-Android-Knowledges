@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tools.alert_dialog
+package com.natiqhaciyef.kotlinandroidknowledges.android.alert_dialog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

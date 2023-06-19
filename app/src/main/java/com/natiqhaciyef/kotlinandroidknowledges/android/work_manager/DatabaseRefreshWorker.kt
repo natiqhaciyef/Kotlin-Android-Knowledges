@@ -1,7 +1,6 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tools.work_manager
+package com.natiqhaciyef.kotlinandroidknowledges.android.work_manager
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 

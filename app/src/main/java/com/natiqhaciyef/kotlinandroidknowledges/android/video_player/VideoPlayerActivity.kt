@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tech.video_player
+package com.natiqhaciyef.kotlinandroidknowledges.android.video_player
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity

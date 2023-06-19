@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tools.notification
+package com.natiqhaciyef.kotlinandroidknowledges.android.notification
 
 import android.app.Notification
 import android.app.NotificationChannel

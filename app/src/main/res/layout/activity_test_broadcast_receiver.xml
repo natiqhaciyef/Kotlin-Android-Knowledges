@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.legacy_tools.broadcast_receiver.TestBroadcastReceiverActivity">
+    tools:context=".android.broadcast_receiver.TestBroadcastReceiverActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

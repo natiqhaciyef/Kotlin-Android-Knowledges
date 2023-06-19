@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.tools.alert_dialog.AlertDialogActivity">
+    tools:context=".android.alert_dialog.AlertDialogActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

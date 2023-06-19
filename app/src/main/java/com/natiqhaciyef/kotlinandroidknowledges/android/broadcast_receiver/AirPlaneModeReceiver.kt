@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.legacy_tools.broadcast_receiver
+package com.natiqhaciyef.kotlinandroidknowledges.android.broadcast_receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context

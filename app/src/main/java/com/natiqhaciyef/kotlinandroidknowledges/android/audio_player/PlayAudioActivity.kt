@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.tech.audio_player
+package com.natiqhaciyef.kotlinandroidknowledges.android.audio_player
 
 import android.media.AudioManager
 import android.media.MediaPlayer
