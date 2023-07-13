@@ -21,6 +21,7 @@ class D : P("", 0) {
 
 }
 
+data class Inform(val name: String, val age: Int)
 
 fun main() {
     val p = P("P", 0)
@@ -29,4 +30,11 @@ fun main() {
 
     println(p.addOwnParent(c))
     println(p.addOwnParent(d))
+
+    // Destructuring object structure
+    val inform = Inform("Name", 0)
+    val (name, age) = inform
+    println(name)
+    println(age)
 }
+

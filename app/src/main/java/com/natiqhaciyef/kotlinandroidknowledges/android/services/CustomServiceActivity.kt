@@ -1,9 +1,8 @@
-package com.natiqhaciyef.kotlinandroidknowledges.android.permissions.services
+package com.natiqhaciyef.kotlinandroidknowledges.android.services
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.natiqhaciyef.kotlinandroidknowledges.android.services.CustomService
 import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityCustomServiceBinding
 
 class CustomServiceActivity : AppCompatActivity() {

@@ -1,17 +1,5 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.oop
 
-/**
-* 2 class yaradın və arasında Parent Child əlaqəsi qurulsun. Child classı Parentdən törədilmiş olsun
- * Parent classının 3 constructoru olacaq : 1 primary və 2 secondary. Primary daxilində name: String, age: Int,
- * Secondary-lar daxilində 1cisində age: Int, name: String, id: Int və 2cisində age: Int, name: String, parentType: String
- * fieldləri olsun.
- * Child classının 1 primary constructoru olsun və daxilində ötürücü (not initialized parameters) name: String, age: Int fieldləri olsun
- * Child classında funksiya yazaraq name return edin və elə olsunki, child.name edərək bu parameterə müdaxilə etmək mümkün olmasın.
- * Funksiyanı getUserName() olaraq adlandırın. Private açar sözü istifadə edilməsi mümkündür.
- *
-* */
-
-
 open class Parent(
     private val name: String, val age: Int
 ) {
@@ -33,9 +21,79 @@ class Child(name: String, age: Int) : Parent(name, age) {
 }
 
 
+
 fun main() {
+
+
     val child = Child("Iko", 14)
+
 
     println(child.getChildName1())
     println(child.getChildName2())
+
+    // 1
+    val object1 = User()
+
+    // 2
+    val object2 = User::class.java.newInstance()
+
+    // 3
+    val object3 = object : User() {
+
+    }
+
 }
+
+
+interface Person {
+    var name: String
+    fun getInfo()
+    fun getDepartment()
+
+}
+
+open class User: Person {
+    override var name: String = ""
+    override fun getInfo() {
+        println("User: $name")
+    }
+
+    override fun getDepartment() {
+
+    }
+}
+
+class Employee(
+    private val employeeName: String,
+    private val email: String,
+    private val age: Int
+) : Person {
+    override var name: String = employeeName
+
+    override fun getInfo() {
+        println("Employee info: Name - $name, Age - $age, Email - $email")
+    }
+
+    override fun getDepartment() {
+        println("IT department")
+    }
+}
+
+class Manager(
+    private val managerName: String,
+    private val email: String,
+    private val age: Int,
+    private val department: String,
+    private val key: String
+) : Person {
+    override var name: String = managerName
+
+    override fun getInfo() {
+        println("Manager info: Name - $name, Age - $age, Email - $email, Department - $department, Key - $key")
+    }
+
+    override fun getDepartment() {
+        println("HR department")
+    }
+}
+

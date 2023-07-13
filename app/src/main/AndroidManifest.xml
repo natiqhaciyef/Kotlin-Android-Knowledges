@@ -84,7 +84,7 @@
             android:name=".android.permissions.contact.ContactActivity"
             android:exported="true" />
         <activity
-            android:name=".android.permissions.services.CustomServiceActivity"
+            android:name=".android.services.CustomServiceActivity"
             android:exported="true" />
         <activity
             android:name=".android.permissions.read_external_storage.ReadExternalStorageActivity"

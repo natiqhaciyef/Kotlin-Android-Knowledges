@@ -46,7 +46,6 @@ class NetworkActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     private suspend fun practice(){
