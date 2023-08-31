@@ -1,18 +1,28 @@
 package com.natiqhaciyef.kotlinandroidknowledges.design_pattern
 
+import com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections.CustomQueue
 import com.natiqhaciyef.kotlinandroidknowledges.design_pattern.prototype.Car
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.UUID
 import kotlin.system.measureNanoTime
 
 
 fun main() {
-    val elapsed = measureNanoTime {
-        GlobalScope.launch {
+//    val uuid = UUID.randomUUID().toString()
+//    val id = "30e171ab-3e37-4a9e-b146-5965922caf97"
+//    println(uuid)
+    val customQueue = CustomQueue<Int>()
+    customQueue.enqueue(12)
+    customQueue.enqueue(1)
+    customQueue.enqueue(26)
+    customQueue.enqueue(41)
 
-        }
-    }
-    println(elapsed)
+    println(customQueue.getFront())
+    customQueue.dequeue()
+    customQueue.dequeue()
+    println(customQueue.getFront())
+
 }
 
 
