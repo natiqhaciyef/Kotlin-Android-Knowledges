@@ -1,5 +1,6 @@
 package com.natiqhaciyef.kotlinandroidknowledges.design_pattern
 
+import com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections.CustomMap
 import com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections.CustomQueue
 import com.natiqhaciyef.kotlinandroidknowledges.design_pattern.prototype.Car
 import kotlinx.coroutines.GlobalScope
@@ -12,16 +13,17 @@ fun main() {
 //    val uuid = UUID.randomUUID().toString()
 //    val id = "30e171ab-3e37-4a9e-b146-5965922caf97"
 //    println(uuid)
-    val customQueue = CustomQueue<Int>()
-    customQueue.enqueue(12)
-    customQueue.enqueue(1)
-    customQueue.enqueue(26)
-    customQueue.enqueue(41)
+    val customMap = CustomMap<String, String>()
 
-    println(customQueue.getFront())
-    customQueue.dequeue()
-    customQueue.dequeue()
-    println(customQueue.getFront())
+    customMap.insert(Pair("apple", "alma"))
+    customMap.insert(Pair("peach", "shaftali"))
+    customMap.insert(Pair("banana", "banan"))
+
+    println(customMap.get("peach"))
+    println(customMap.get("apple"))
+    println(customMap.remove("banana"))
+    println(customMap.get("banana"))
+
 
 }
 

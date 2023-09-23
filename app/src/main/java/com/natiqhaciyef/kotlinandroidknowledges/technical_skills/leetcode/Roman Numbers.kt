@@ -1,5 +1,7 @@
 package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.leetcode
 
+import kotlin.reflect.typeOf
+
 
 //I             1
 //V             5
@@ -23,7 +25,7 @@ fun romanToInt(s: String): Int {
 
         for (j in 0..index) {
             if (element > counter[j]) {
-                element -= counter[j]*2
+                element -= counter[j] * 2
             }
         }
         sum += element
@@ -71,4 +73,8 @@ fun romanNumberToNormal(c: Char) = when (c) {
 
 fun main() {
     romanToInt("III")
+
+    val d1 = 118.41172464
+    val d2 = -123.12390389
+    println(d2 is Double)
 }

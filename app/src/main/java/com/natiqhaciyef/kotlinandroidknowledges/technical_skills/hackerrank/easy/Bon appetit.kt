@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.hackerrank
+package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.hackerrank.easy
 
 fun bonAppetit(bill: Array<Int>, k: Int, b: Int) {
     var totalPrice = 0

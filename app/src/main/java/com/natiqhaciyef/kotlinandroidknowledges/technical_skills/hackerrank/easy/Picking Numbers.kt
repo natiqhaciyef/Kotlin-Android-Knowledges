@@ -1,6 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.hackerrank
-
-import kotlin.math.max
+package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.hackerrank.easy
 
 
 fun pickingNumbers(a: Array<Int>): Int {

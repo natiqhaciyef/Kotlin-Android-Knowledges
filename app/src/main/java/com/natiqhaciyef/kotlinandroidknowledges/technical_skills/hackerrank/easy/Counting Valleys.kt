@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.hackerrank
+package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.hackerrank.easy
 
 
 fun countingValleys(steps: Int, path: String): Int {
