@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -82,88 +84,20 @@ import javax.inject.Inject
 //
 //}
 
-fun formattedLocalDateToString(dateTime: LocalDateTime = LocalDateTime.now()): String {
-    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
-    return formatter.format(dateTime)
-}
-
-fun fromStringDateToMappedDateTime(s: String = "01.12.2001 15:59"): String {
-    val subDay = s.substring(0..1)
-    val subMonth = s.substring(3..4)
-    val subYear = s.substring(6..9)
-    val subTime = s.substring(11..15)
-
-    val day = if (subDay.startsWith("0")) subDay[1] else subDay
-    val month = fromDateToMonth(subMonth)
-    val time = fromStringToMappedTime(subTime)
-
-    return "$time ($day $month, $subYear)"
-}
-
-fun fromDateToMonth(month: String) = when (month) {
-    "01" -> {
-        "January"
-    }
-
-    "02" -> {
-        "February"
-    }
-
-    "03" -> {
-        "March"
-    }
-
-    "04" -> {
-        "April"
-    }
-
-    "05" -> {
-        "May"
-    }
-
-    "06" -> {
-        "June"
-    }
-
-    "07" -> {
-        "July"
-    }
-
-    "08" -> {
-        "August"
-    }
-
-    "09" -> {
-        "September"
-    }
-
-    "10" -> {
-        "October"
-    }
-
-    "11" -> {
-        "November"
-    }
-
-    "12" -> {
-        "December"
-    }
-
-    else -> "Time left"
-}
-
-fun fromStringToMappedTime(time: String): String {
-    val start = time.substring(0..1)
-
-    return if (start.toInt() > 12) {
-        "${start.toInt() - 12}:${time.substring(3..4)} PM"
-    } else {
-        "$time AM"
-    }
-}
-
 
 fun main() {
-    println(fromStringDateToMappedDateTime())
-    println(formattedLocalDateToString())
+    println(hashPassword("Natiq123"))
+}
+
+
+private fun hashPassword(password: String): String {
+    val messageDigest = MessageDigest.getInstance("SHA-256")
+    val hashBytes = messageDigest.digest(password.toByteArray(StandardCharsets.UTF_8))
+    val hexString = StringBuffer()
+
+    for (byte in hashBytes) {
+        hexString.append(String.format("%02x", byte))
+    }
+
+    return hexString.toString()
 }

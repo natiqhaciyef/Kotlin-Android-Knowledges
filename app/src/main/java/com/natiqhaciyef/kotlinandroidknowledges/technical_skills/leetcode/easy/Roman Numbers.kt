@@ -1,6 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.leetcode
-
-import kotlin.reflect.typeOf
+package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.leetcode.easy
 
 
 //I             1
