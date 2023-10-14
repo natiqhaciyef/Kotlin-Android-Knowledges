@@ -3,7 +3,7 @@ package com.natiqhaciyef.kotlinandroidknowledges.kotlin.useful_functionality
 data class MenuItem(val dishName: String, val price: Double)
 
 fun main() {
-    val list = listOf<String>("Any", "Emma", "Perl", "Cannabis", "Suzan", "Mehmet")
+    val list = listOf("Any", "Emma", "Perl", "Cannabis", "Suzan", "Mehmet")
     useOfFold(list)
 }
 
