@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.leetcode.hard
+package com.natiqhaciyef.kotlinandroidknowledges.technical_skills.leetcode.medium
 
 fun longestPalindrome(s: String): String {
     var max = ""
