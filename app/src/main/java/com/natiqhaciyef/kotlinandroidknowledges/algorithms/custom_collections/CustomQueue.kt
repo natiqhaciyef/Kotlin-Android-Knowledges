@@ -1,9 +1,6 @@
 package com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections
 
 
-class Node<T>(val data: T) {
-    var back: Node<T>? = null
-}
 
 class CustomQueue<T> {
     private var front: Node<T>? = null
@@ -19,18 +16,9 @@ class CustomQueue<T> {
             front = newNode
             rear = newNode
         } else {
-            rear?.back = newNode
+            rear?.front = newNode
             rear = newNode
         }
-
-        println("Front: $front")
-        println("--------------------------")
-        println("Rear: $rear")
-        println("--------------------------")
-        println("Rear: ${rear?.back}")
-
-
-        println("-------------------------- \n -------------------------- \n")
     }
 
     fun dequeue(): T? {
@@ -39,13 +27,7 @@ class CustomQueue<T> {
         }
 
         val removedValue = front?.data
-        front = front?.back
-
-        println("Front: $front")
-        println("--------------------------")
-        println("Rear: $rear")
-        println("--------------------------")
-        println("Rear: ${rear?.back}")
+        front = front?.front
 
         if (front == null) {
             rear = null

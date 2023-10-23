@@ -1,6 +1,7 @@
 package com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections
 
 class CustomMap <K, V>{
+    var size = 101
     private val list: MutableList<Pair<K,V>> = mutableListOf()
 
     fun insert(pair: Pair<K, V>){
@@ -27,6 +28,11 @@ class CustomMap <K, V>{
     }
 
     private fun hash(key: K): Int{
-        return key.hashCode() % 101
+        if (size >= list.size) {
+            size *= 2
+            return key.hashCode() % size + size
+        }
+
+        return key.hashCode() % size
     }
 }
