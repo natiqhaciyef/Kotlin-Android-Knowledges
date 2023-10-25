@@ -10,7 +10,4 @@ fun main() {
 
     cll.printLinkedList()
     cll.removeNode()
-    println()
-
-    cll.printLinkedList()
 }
