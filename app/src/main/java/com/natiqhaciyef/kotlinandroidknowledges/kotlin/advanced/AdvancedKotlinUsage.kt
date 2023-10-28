@@ -1,19 +1,20 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced
 
 fun main() {
-    getParam1(listOf("User name","User age"))
-    getParam1(listOf(0,1,2,3))
+    getParam1(listOf("User name", "User age"))
+    getParam1(listOf(0, 1, 2, 3))
+
+    val list = mutableListOf("User name", "User age")
 }
 
-fun unReach(someNullable: String?){
+fun unReach(someNullable: String?) {
     val nonNull: String = someNullable ?: throw NotImplementedError()
     nonNull.last()
 
-    val thing: Nothing = TODO("String")
 }
 
-fun <T> getParam1(list: List<T>){
-    if (list is List<*>){
+inline fun <reified T> getParam1(list: List<T>) {
+    if (list is List<*>) {
         val listNumber = list as List<Int>
         println(listNumber)
     }
