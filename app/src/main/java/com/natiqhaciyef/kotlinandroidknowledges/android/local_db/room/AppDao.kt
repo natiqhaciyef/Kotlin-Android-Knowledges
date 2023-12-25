@@ -12,8 +12,8 @@ interface AppDao {
     suspend fun getCountry(): List<CountryEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertCountry(countryEntity: CountryEntity): Long
+    suspend fun insertCountry(countryEntity: CountryEntity) //: Long
 
     @Delete
-    suspend fun deleteCountry(countryEntity: CountryEntity): Long
+    suspend fun deleteCountry(countryEntity: CountryEntity) //: Long
 }

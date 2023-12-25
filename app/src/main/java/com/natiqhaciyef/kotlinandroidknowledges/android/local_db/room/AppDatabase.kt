@@ -26,6 +26,4 @@ abstract class AppDatabase : RoomDatabase() {
             "app_database"
         ).build()
     }
-
-
 }
