@@ -19,12 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinAndroidKnowledges"
         tools:targetApi="31">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDqIBd6VcWfIxDB8ks_JSqjQ34ucIScjso" />
 
         <service android:name=".android.services.CustomService" />
+
         <receiver android:name=".android.broadcast_receiver.AirPlaneModeReceiver" />
         <receiver
             android:name=".android.broadcast_receiver.TimeZoneChangeReceiver"
@@ -35,8 +35,8 @@
         </receiver>
 
         <activity
-            android:name=".android.view.recyclerview.RecyclerViewActivity"
-            android:exported="true" >
+            android:name=".android.view.epoxy.MainEpoxyActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,14 +44,25 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".android.view.recyclerview.RecyclerViewActivity"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
             android:name=".android.permissions.location.UserLocationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".android.permissions.location.MapsActivity"
             android:exported="true" />
         <activity
             android:name=".android.video_player.VideoPlayerActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".android.local_db.data_store.DSActivity"
             android:exported="true" />
@@ -82,11 +93,13 @@
         <activity
             android:name=".android.permissions.read_external_storage.ReadExternalStorageActivity"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".MainActivity"
@@ -95,18 +108,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <!--
-            TODO: Before you run your application, you need a Google Maps API key.
-
-            To get one, follow the directions here:
-
-               https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-            Once you have your API key (it starts with "AIza"), define a new property in your
-            project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-            "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-       -->
     </application>
 
 </manifest>

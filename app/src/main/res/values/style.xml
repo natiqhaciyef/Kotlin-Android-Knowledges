@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="RoundedCornerImage">
+        <item name="cornerSizeTopRight">5%</item>
+        <item name="cornerSizeTopLeft">5%</item>
+        <item name="cornerSizeBottomLeft">5%</item>
+        <item name="cornerSizeBottomRight">5%</item>
+    </style>
+
+    <style name="CircleImage">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:editTextColor">@color/white</item>
+    </style>
+
+</resources>
