@@ -31,6 +31,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += 'META-INF/INDEX.LIST' // Add this line
+            excludes += 'META-INF/DEPENDENCIES' // And this line
+        }
+    }
     kotlinOptions {
         jvmTarget = '1.8'
         freeCompilerArgs += [
@@ -132,6 +140,12 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer-hls:$exoPlayer"
     implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$exoPlayer"
     implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayer"
+
+    // palm api dependencies
+//    implementation("com.google.cloud:gapic-google-cloud-ai-generativelanguage-v1beta3-java:0.0.0-SNAPSHOT")
+//    implementation("io.grpc:grpc-okhttp:1.53.0")
+    // this one is needed by Android's Jetpack Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
 }
 
 kapt {
