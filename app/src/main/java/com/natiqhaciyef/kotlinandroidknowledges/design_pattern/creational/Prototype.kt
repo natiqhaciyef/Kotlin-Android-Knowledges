@@ -1,7 +1,9 @@
-package com.natiqhaciyef.kotlinandroidknowledges.design_pattern.prototype
+package com.natiqhaciyef.kotlinandroidknowledges.design_pattern.creational
 
-import com.natiqhaciyef.kotlindesignpatterns.design_patterns.prototype.Cloneable
 
+interface Cloneable {
+    fun clone(): Cloneable
+}
 
 class Car : Cloneable {
     var brand: String = ""
