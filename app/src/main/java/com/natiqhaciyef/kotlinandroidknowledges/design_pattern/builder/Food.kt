@@ -9,11 +9,11 @@ class Food private constructor(
 ){
 
     data class Builder(
-        var bread: String = "Flat bread",
-        var ingredients: List<String>? = null,
-        var condiments: List<String>? = null,
-        var meat: String? = null,
-        var sous: String? = null
+        private var bread: String = "Flat bread",
+        private var ingredients: List<String>? = null,
+        private var condiments: List<String>? = null,
+        private var meat: String? = null,
+        private var sous: String? = null
     ){
 
         fun bread(bread: String) = apply { this.bread = bread}
@@ -24,4 +24,8 @@ class Food private constructor(
 
         fun build() = Food(bread, ingredients, condiments, meat, sous)
     }
+}
+
+fun main() {
+    var food = Food.Builder()
 }

@@ -2,7 +2,9 @@ package com.natiqhaciyef.kotlinandroidknowledges.android.local_db.shared_prefere
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.work.impl.model.Preference
+import android.os.Parcelable
+import com.google.gson.Gson
+import kotlinx.parcelize.Parcelize
 
 class SharedPref(val context: Context) {
     val DB_NAME = "custom_database"
@@ -34,21 +36,61 @@ class CustomSharedPref {
         }
 
         private fun createCustomSharedPref(context: Context): CustomSharedPref {
-            sharedPref = context.getSharedPreferences("custom_shared_preference", Context.MODE_PRIVATE)
+            sharedPref =
+                context.getSharedPreferences("custom_shared_preference", Context.MODE_PRIVATE)
             return CustomSharedPref()
         }
     }
 
 }
 
-fun aaa(){
-    var str = ""
-    var strNullable: String? = null
 
-    strNullable?.length
-    strNullable!!.length
-    strNullable ?: ""
-
-    val l = if (strNullable != null) strNullable.length else -1
-    strNullable?.let { println(it) } // prints Kotlin and ignores null
+fun main() {
+    val arch = ArchitectureModel(
+        title = "empty",
+        image = "empty",
+        info = "empty",
+        category = "empty",
+        history = null,
+        architect = null,
+        place = null
+    )
+    println(Gson().toJson(arch))
 }
+
+@Parcelize
+data class ArchitectureModel(
+    var title: String,
+    var image: String,
+    var info: String,
+    var category: String,
+    var history: String?,
+    var architect: ArtistModel?,
+    var place: PlaceModel?,
+) : Parcelable
+
+@Parcelize
+data class ArtistModel(
+    var id: Int,
+    var fullname: String,
+    var birth: String,
+    var image: String?,
+    var dead: String,
+    var age: Int,
+    var info: String,
+    var fields: String,
+) : Parcelable
+
+
+@Parcelize
+data class PlaceModel(
+    var id: Int,
+    var city: String,
+    var country: String,
+    var image: String?,
+    var flag: String?,
+    var capital: String,
+    var info: String?,
+) : Parcelable
+
+
