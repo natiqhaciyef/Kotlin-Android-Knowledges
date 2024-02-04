@@ -1,12 +1,7 @@
 package com.natiqhaciyef.kotlinandroidknowledges.design_pattern
 
 import com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections.CustomMap
-import com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections.CustomQueue
-import com.natiqhaciyef.kotlinandroidknowledges.design_pattern.prototype.Car
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.util.UUID
-import kotlin.system.measureNanoTime
+import com.natiqhaciyef.kotlinandroidknowledges.design_pattern.creational.Car
 
 
 fun main() {
@@ -55,7 +50,6 @@ fun createObjectClones() {
     val car24 = car1.clone()
     val car25 = car1.clone()
 }
-
 
 fun createNewObjects() {
     val car1 = Car()

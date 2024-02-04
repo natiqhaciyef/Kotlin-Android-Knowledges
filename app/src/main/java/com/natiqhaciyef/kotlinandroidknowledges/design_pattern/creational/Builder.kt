@@ -1,4 +1,4 @@
-package com.natiqhaciyef.kotlinandroidknowledges.design_pattern.builder
+package com.natiqhaciyef.kotlinandroidknowledges.design_pattern.creational
 
 class Food private constructor(
     var bread: String = "Flat bread",

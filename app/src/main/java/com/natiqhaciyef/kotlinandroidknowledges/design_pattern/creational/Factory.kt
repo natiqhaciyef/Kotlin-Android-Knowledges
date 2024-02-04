@@ -1,4 +1,13 @@
-package com.natiqhaciyef.kotlinandroidknowledges.design_pattern.factory
+package com.natiqhaciyef.kotlinandroidknowledges.design_pattern.creational
+
+enum class Countries{
+    Turkey,
+    Azerbaijan,
+    England,
+    USA,
+    Norway,
+    Spain,
+}
 
 sealed class Currencies{
     interface CurrencyInterface{
