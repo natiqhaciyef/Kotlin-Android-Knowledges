@@ -10,20 +10,20 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.first
 
 class AppPref(var context: Context) {
-    private val Context.ds : DataStore<Preferences> by preferencesDataStore("info")
+    private val Context.ds: DataStore<Preferences> by preferencesDataStore("info")
 
-    companion object{
+    companion object {
         val NAME_KEY = stringPreferencesKey("NAME")
         val COUNTER_KEY = intPreferencesKey("COUNTER")
     }
 
-    suspend fun saveName(name: String){
+    suspend fun saveName(name: String) {
         context.ds.edit {
             it[NAME_KEY] = name
         }
     }
 
-    suspend fun saveCounter(counter: Int){
+    suspend fun saveCounter(counter: Int) {
         context.ds.edit {
             it[COUNTER_KEY] = counter
         }
@@ -32,7 +32,7 @@ class AppPref(var context: Context) {
     suspend fun readName(): String = context.ds.data.first()[NAME_KEY] ?: "Name Not Found"
     suspend fun readCounter(): Int = context.ds.data.first()[COUNTER_KEY] ?: 0
 
-    suspend fun removeName(){
+    suspend fun removeName() {
         context.ds.edit {
             it.remove(NAME_KEY)
         }

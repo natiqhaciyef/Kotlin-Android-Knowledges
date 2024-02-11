@@ -62,7 +62,7 @@ class ReadExternalStorageActivity : AppCompatActivity() {
     }
 
 
-    fun selectImage() {
+    private fun selectImage() {
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.READ_EXTERNAL_STORAGE

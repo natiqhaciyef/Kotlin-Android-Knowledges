@@ -91,6 +91,9 @@
             android:name=".android.services.CustomServiceActivity"
             android:exported="true" />
         <activity
+            android:name=".android.viewpager.WalkthroughActivity"
+            android:exported="false" />
+        <activity
             android:name=".android.permissions.read_external_storage.ReadExternalStorageActivity"
             android:exported="false">
 
