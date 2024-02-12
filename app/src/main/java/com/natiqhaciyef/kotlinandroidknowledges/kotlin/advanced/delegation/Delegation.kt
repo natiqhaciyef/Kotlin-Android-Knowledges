@@ -1,6 +1,5 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.delegation
 
-import java.lang.reflect.Array.set
 
 interface D{
     var name: String

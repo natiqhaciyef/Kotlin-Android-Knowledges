@@ -15,5 +15,9 @@ fun main() {
         this.name = "Hello"
     }
 
+    with(person) {
+        name = "Alfabet"
+    }
+
     println(person)
 }

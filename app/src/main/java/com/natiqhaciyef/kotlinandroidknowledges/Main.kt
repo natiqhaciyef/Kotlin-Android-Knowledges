@@ -87,6 +87,10 @@ import javax.inject.Inject
 
 fun main() {
     println(hashPassword("Natiq123"))
+    val a = 1
+    val b = 12
+
+    println(a.plus(b))
 }
 
 

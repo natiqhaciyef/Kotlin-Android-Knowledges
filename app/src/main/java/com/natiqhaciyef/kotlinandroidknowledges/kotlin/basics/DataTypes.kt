@@ -29,6 +29,8 @@ package com.natiqhaciyef.kotlinandroidknowledges.kotlin.basics
  * (Run-Time scope)
  * Const val - sabit və heç bir şəkildə dəyişdirilə bilməyən dəyişən tipidir. Bu dəyişənlər
  * yalnız dəyər alır və həmin dəyərlər bütünlüklə sabit qalır. (Compile Time scope)
+ *
+ * @author Natig Hajiyev
  * */
 
 // main function for writing code, running and get result
