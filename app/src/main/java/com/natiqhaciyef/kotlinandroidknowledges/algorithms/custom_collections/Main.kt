@@ -11,3 +11,8 @@ package com.natiqhaciyef.kotlinandroidknowledges.algorithms.custom_collections
 //    cll.printLinkedList()
 //    cll.removeNode()
 //}
+
+
+fun main() {
+    val list = mapOf<String, Int>("empty" to 1)
+}
