@@ -49,7 +49,7 @@ class ReadExternalStorageActivity : AppCompatActivity() {
 
         activityLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                if (result.resultCode == RESULT_OK) {
                     val data = result.data
                     if (data != null) {
                         imageData = data.data

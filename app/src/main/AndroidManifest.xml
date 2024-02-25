@@ -20,6 +20,15 @@
         android:theme="@style/Theme.KotlinAndroidKnowledges"
         tools:targetApi="31">
         <activity
+            android:name=".android.result_launcher.HandlerActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".android.livedata.LiveDataActivity"
             android:exported="false" />
 
@@ -41,11 +50,6 @@
         <activity
             android:name=".android.view.epoxy.MainEpoxyActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".android.view.recyclerview.RecyclerViewActivity"
