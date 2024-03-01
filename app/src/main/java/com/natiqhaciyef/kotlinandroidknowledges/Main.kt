@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import javax.inject.Inject
+import kotlin.system.measureTimeMillis
 
 
 //@HiltViewModel
@@ -86,11 +87,34 @@ import javax.inject.Inject
 
 
 fun main() {
-    println(hashPassword("Natiq123"))
-    val a = 1
-    val b = 12
+    val kotlin = "Empty"
 
-    println(a.plus(b))
+//    val timeInMillis = measureTimeMillis {
+//        when (kotlin) {
+//            "Empty" -> {
+//                println("Empty")
+//            }
+//
+//            "Nothing" -> {
+//                println("Nothing")
+//            }
+//
+//            else -> {
+//                println("Yoxdu")
+//            }
+//        }
+//    }
+
+    val timeInMillis = measureTimeMillis {
+        if (kotlin == "Empty"){
+            println("Empty")
+        }else if(kotlin == "Nothing"){
+            println("Nothing")
+        }else{
+            println("Yoxdu")
+        }
+    }
+    println("Time: $timeInMillis")
 }
 
 

@@ -1,7 +1,9 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.scopefunc
 
+import com.natiqhaciyef.kotlinandroidknowledges.technical_skills.other.findEfficientSumOf
+
 // Custom scope function
-data class Person(var name: String, var age: Int)
+class Person(var name: String, var age: Int)
 
 // Custom scope function with receiver as Person
 inline fun Person.applyName(block: Person.() -> Unit): Person {
@@ -9,7 +11,6 @@ inline fun Person.applyName(block: Person.() -> Unit): Person {
     return this
 }
 
-fun main() {
 //    val person = Person("Natiq", 21)
 //    person.applyName {
 //        this.name = "Hello"
@@ -20,19 +21,21 @@ fun main() {
 //    }
 //
 //    println(person)
+fun main() {
 
     val tripleEntry1 = TripleEntry<Int, String, Double>(1, "Hello", 2.4)
     val tripleEntry2 = TripleEntry<Int, String, Double>(3, "Welcome", 7.0)
-    tripleEntry1.tripleScope{
+    tripleEntry1.tripleScope {
+        // tripleMap yarandi
         add(tripleEntry2)
-        this
+        println(this)
     }
 }
 
 
 fun <R, K, L> TripleEntry<R, K, L>.tripleScope(
-    scope: TripleMap<R, K, L>.() -> TripleMap<R, K, L>
-): TripleMap<R, K, L> {
+    scope: TripleMap<R, K, L>.() -> Unit
+) {
     val tripleMap = tripleMapOf(this)
     return scope.invoke(tripleMap)
 }
