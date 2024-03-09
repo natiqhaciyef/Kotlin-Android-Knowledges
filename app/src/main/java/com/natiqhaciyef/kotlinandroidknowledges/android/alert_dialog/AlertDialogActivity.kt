@@ -69,6 +69,13 @@ class AlertDialogActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
+    fun customAlertDialogWithFragmentView() {
+        CustomAlertDialogFragment().show(
+            supportFragmentManager,
+            CustomAlertDialogFragment.TAG
+        )
+    }
+
     private fun datePickerDialog(calendar: Calendar) {
         val datePicker = DatePickerDialog.OnDateSetListener { datePicker, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)

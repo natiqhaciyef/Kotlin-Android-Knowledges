@@ -1,7 +1,6 @@
 package com.natiqhaciyef.kotlinandroidknowledges
 
 import com.google.gson.Gson
-import kotlin.system.measureTimeMillis
 
 
 data class TokenResponse(
@@ -54,5 +53,52 @@ fun main() {
         )
     )
 
-    println(Gson().toJson(userResponse))
+
+    val materialResponse = MaterialResponse(
+        id = "",
+        publish_date = "",
+        image = "",
+        title = "",
+        description = "",
+        type = "",
+        url = "",
+        result = CRUDResponse(
+            code = 0,
+            message = ""
+        )
+    )
+
+    val materialsResponse = MaterialsResponse(
+        id = "",
+        publish_date = "",
+        materials = listOf(),
+        result = CRUDResponse(
+            code = 0,
+            message = ""
+        )
+    )
+
+
+
+    println(Gson().toJson(materialsResponse))
 }
+
+
+data class MaterialResponse(
+    var id: String,
+    var publish_date: String,
+    var image: String = "",
+    var title: String?,
+    var description: String?,
+    var type: String,
+    var url: String,
+    var result: CRUDResponse? = null,
+)
+
+
+data class MaterialsResponse(
+    var id: String,
+    var materials: List<MaterialResponse>,
+    var result: CRUDResponse?,
+    var publish_date: String
+)
