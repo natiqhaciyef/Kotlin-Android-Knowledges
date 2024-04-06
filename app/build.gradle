@@ -147,9 +147,13 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$exoPlayer"
     implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayer"
 
+    // reflection
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
+
     // palm api dependencies
 //    implementation("com.google.cloud:gapic-google-cloud-ai-generativelanguage-v1beta3-java:0.0.0-SNAPSHOT")
 //    implementation("io.grpc:grpc-okhttp:1.53.0")
+
     // this one is needed by Android's Jetpack Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
 }

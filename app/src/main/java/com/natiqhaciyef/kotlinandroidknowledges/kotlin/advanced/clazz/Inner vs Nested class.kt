@@ -1,5 +1,7 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.clazz
 
+import com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.annotations.MathematicalCalculation
+
 
 open class OuterClass {
     private val info = "Empty info"
@@ -28,4 +30,5 @@ fun main() {
     val inner = OuterClass().InnerClass()
     val nested = OuterClass.NestedClass()
     println(inner.getInfoAgain())
+    MathematicalCalculation()
 }
