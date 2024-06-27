@@ -28,4 +28,5 @@ class Food private constructor(
 
 fun main() {
     var food = Food.Builder()
+        .build()
 }
