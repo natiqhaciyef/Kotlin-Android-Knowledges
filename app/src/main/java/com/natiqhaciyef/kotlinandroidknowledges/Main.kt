@@ -1,8 +1,5 @@
 package com.natiqhaciyef.kotlinandroidknowledges
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
@@ -105,16 +102,20 @@ fun main() {
 //        }
 //    }
 
-    val timeInMillis = measureTimeMillis {
-        if (kotlin == "Empty"){
-            println("Empty")
-        }else if(kotlin == "Nothing"){
-            println("Nothing")
-        }else{
-            println("Yoxdu")
-        }
-    }
-    println("Time: $timeInMillis")
+//    val timeInMillis = measureTimeMillis {
+//        if (kotlin == "Empty"){
+//            println("Empty")
+//        }else if(kotlin == "Nothing"){
+//            println("Nothing")
+//        }else{
+//            println("Yoxdu")
+//        }
+//    }
+//    println("Time: $timeInMillis")
+
+    val str = "1.923920"
+
+    println(str.toDouble())
 }
 
 
