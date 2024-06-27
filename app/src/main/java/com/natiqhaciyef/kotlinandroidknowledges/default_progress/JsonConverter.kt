@@ -19,13 +19,13 @@ data class ListOfCountriesModel(
 
 
 fun main() {
-    val filePath = "file_address/countries.json" // Replace with your JSON file path
+    val filePath = "-/countries.json" // Replace with your JSON file path
     val file = File(filePath)
 
     val jsonString = file.readText()
     val result = Gson().fromJson(jsonString, ListOfCountriesModel::class.java)
-
-    println(result.countries.map { it.name })
+    val resultJson = result.countries.map { it.name }
+    println(Gson().toJson(resultJson))
 }
 
 
