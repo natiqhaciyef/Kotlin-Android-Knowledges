@@ -1,6 +1,6 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.clazz
 
-import com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.annotations.MathematicalCalculation
+import com.natiqhaciyef.kotlinandroidknowledges.MathematicalCalculation
 
 
 open class OuterClass {

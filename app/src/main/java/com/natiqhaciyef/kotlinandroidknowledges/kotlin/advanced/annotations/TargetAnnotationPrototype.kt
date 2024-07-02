@@ -1,5 +1,8 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.annotations
 
+import kotlin.reflect.full.declaredFunctions
+import kotlin.reflect.full.findAnnotation
+
 
 /**
  * @Target annotation specifies the possible kinds of elements which can be annotated with the annotation
@@ -14,6 +17,15 @@ annotation class TargetAnnotationPrototype(val name: String)
  * */
 @Retention(AnnotationRetention.RUNTIME) // Annotation will be available at runtime
 annotation class Loggable(val metadata: String)
+
+@Target(
+    AnnotationTarget.PROPERTY,
+    AnnotationTarget.FIELD,
+    AnnotationTarget.VALUE_PARAMETER,
+    AnnotationTarget.TYPE_PARAMETER,
+)
+@Retention(AnnotationRetention.RUNTIME) // Annotation will be available at runtime
+annotation class CustomField
 
 
 /**
@@ -53,59 +65,44 @@ class ProgrammingLanguage {
 )
 class MyCustomClass(
     val data: String,
-    @field: NotNullExample
-    val optionalParam: Int? = null
-)
+    @CustomField
+    val optionalParam: Int = 0,
+){
 
+    fun optionalParamContainer(@CustomField param: String): String{
+        return param
+    }
+}
 
 
 fun main() {
-    val myCustomClass = MyCustomClass::class
-//    println(myCustomClass.annotations)
+    val myClas = MyCustomClass("Pick", 10)
 
-    println("Start")
-    val myClas = MyCustomClass("", null)
-    println(myClas.optionalParam)
-    println("End")
+    println(checkParametersJava(myClas))
+//    println(myClas.optionalParamContainer())
+    println(checkParametersOfData(myClas))
+}
 
+fun checkParametersJava(obj: MyCustomClass): Boolean {
+    val dataField = obj::class.java
+    return dataField.getAnnotation(Loggable::class.java) != null
+}
+
+fun checkParametersKotlin(obj: MyCustomClass): Boolean {
+    val dataField = obj::class
+    return dataField.findAnnotation<Loggable>() != null
+}
+
+fun checkParametersOfData(myCustomClass: MyCustomClass): Boolean {
+    val field = myCustomClass::class.declaredFunctions.find { it.name == "optionalParamContainer" }!!
+    return field.parameters.any {
+        it.name == "param" &&
+        it.findAnnotation<CustomField>() != null
+    }
+}
 
 //    val kotlin = ProgrammingLanguage::class.java
 //    for (annotation in kotlin.annotations){
 //        println(annotation.annotationClass.simpleName)
 //    }
 //    println(kotlin.name)
-}
-
-
-
-fun checkParameters(obj: MyCustomClass) {
-    val dataField = MyCustomClass::class.java.getDeclaredField("data")
-    val hasDataAnnotation = dataField.getAnnotation(Loggable::class.java) != null
-    // Similar check for other potential annotated parameters
-
-    if (hasDataAnnotation) {
-        // Do something when data parameter is present
-    } else {
-        // Do something when data parameter is missing
-    }
-}
-
-class MathematicalCalculation {
-    fun matrixCalculator() {
-        loop@ for (element in 0..3) {
-            for (subElement in 0..3) {
-                if (subElement > element) break@loop
-            }
-        }
-    }
-}
-
-
-
-//<string name="monyo_receipt_item_name">Adı</string>
-//<string name="monyo_receipt_item_amount">Miqdar</string>
-//<string name="monyo_receipt_item_price">Qiymət</string>
-//<string name="monyo_receipt_total_sum">Ümumi cəmi</string>
-//<string name="monyo_receipt_service_fee">Xidmət haqqı (8%)</string>
-//<string name="monyo_receipt_total_price">Yekun məbləğ</string>
-//<string name="monyo_receipt_share">Qəbzi paylaş</string>

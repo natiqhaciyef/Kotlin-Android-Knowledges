@@ -118,6 +118,16 @@ fun main() {
     println(str.toDouble())
 }
 
+class MathematicalCalculation {
+    fun matrixCalculator() {
+        loop@ for (element in 0..3) {
+            for (subElement in 0..3) {
+                if (subElement > element) break@loop
+            }
+        }
+    }
+}
+
 
 private fun hashPassword(password: String): String {
     val messageDigest = MessageDigest.getInstance("SHA-256")
