@@ -32,7 +32,7 @@ class AdapterCodeBuilder(
             .parameterizedBy(viewHolderQualifiedClassName)
         )
         .addProperty(
-            PropertySpec.builder("items", itemsListClassName) // 4
+            PropertySpec.builder("items", itemsListClassName)
             .addModifiers(KModifier.PRIVATE)
             .initializer("items")
             .build()

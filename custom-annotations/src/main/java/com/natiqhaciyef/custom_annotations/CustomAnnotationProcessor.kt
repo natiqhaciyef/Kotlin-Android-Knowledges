@@ -25,14 +25,14 @@ class CustomAnnotationProcessor : AbstractProcessor() {
             processingEnv.options[KAPT_KOTLIN_GENERATED_OPTION_NAME]
                 ?: return false
 
-        val elements = roundEnv.getElementsAnnotatedWith(AdapterModel::class.java)
+        roundEnv.getElementsAnnotatedWith(AdapterModel::class.java)
             .forEach { element ->
                 val modelData = getModelData(element)
-                val fileName = "${modelData.modelName}Adapter" // 1
-                FileSpec.builder(modelData.packageName, fileName) // 2
-                    .addType(AdapterCodeBuilder(fileName, modelData).build()) // 3
+                val fileName = "${modelData.modelName}Adapter"
+                FileSpec.builder(modelData.packageName, fileName)
+                    .addType(AdapterCodeBuilder(fileName, modelData).build())
                     .build()
-                    .writeTo(File(kaptKotlinGeneratedDir)) // 4
+                    .writeTo(File(kaptKotlinGeneratedDir))
             }
 
 
@@ -48,7 +48,7 @@ class CustomAnnotationProcessor : AbstractProcessor() {
         val viewHolderBindingData = elem.enclosedElements.mapNotNull {
             val viewHolderBinding = it.getAnnotation(ViewHolderBinding::class.java)
             if (viewHolderBinding == null) {
-                null // 7
+                null
             } else {
                 val elementName = it.simpleName.toString()
                 val fieldName = elementName.substring(0, elementName.indexOf('$'))
