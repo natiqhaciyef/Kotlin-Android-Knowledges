@@ -1,0 +1,1 @@
+/Users/natighajiyev/StudioProjects/Kotlin-Android-Knowledges/lib/build/classes/kotlin/main/com/natiqhaciyef/lib/Fundamentals.class
