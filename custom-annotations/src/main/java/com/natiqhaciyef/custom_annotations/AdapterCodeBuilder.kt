@@ -87,12 +87,12 @@ class AdapterCodeBuilder(
     )
 
     private fun TypeSpec.Builder.addBindingMethod(): TypeSpec.Builder = addFunction(
-        FunSpec.builder("bind") // 1
+        FunSpec.builder("bind")
             .addParameter("item", modelClassName)
             .apply {
-                data.viewHolderBindingData.forEach { // 2
+                data.viewHolderBindingData.forEach {
                     addStatement("itemView.findViewById<%T>(%L).text = item.%L",
-                        textViewClassName, it.viewId, it.fieldName) // 3
+                        textViewClassName, it.viewId, it.fieldName.removePrefix("get").lowercase())
                 }
             }
             .build()

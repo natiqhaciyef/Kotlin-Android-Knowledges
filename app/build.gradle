@@ -62,7 +62,8 @@ dependencies {
     def workVersion = "2.8.1"
     def exoPlayer = "2.18.7"
 
-    implementation(":custom-annotations")
+    implementation(project(":custom-annotations"))
+    kapt project(':custom-annotations')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

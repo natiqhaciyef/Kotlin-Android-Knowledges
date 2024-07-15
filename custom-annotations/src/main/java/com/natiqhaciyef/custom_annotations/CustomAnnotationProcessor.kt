@@ -9,7 +9,7 @@ import javax.lang.model.SourceVersion
 import javax.lang.model.element.Element
 import javax.lang.model.element.TypeElement
 
-@SupportedSourceVersion(SourceVersion.RELEASE_8) // 1
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 class CustomAnnotationProcessor : AbstractProcessor() {
 
     override fun getSupportedAnnotationTypes(): Set<String> {
@@ -22,7 +22,7 @@ class CustomAnnotationProcessor : AbstractProcessor() {
 
     override fun process(annotations: Set<TypeElement>, roundEnv: RoundEnvironment): Boolean {
         val kaptKotlinGeneratedDir =
-            processingEnv.options[KAPT_KOTLIN_GENERATED_OPTION_NAME]
+            processingEnv.options[KAPT_KOTLIN_GENERATED_PACKAGE_NAME]
                 ?: return false
 
         roundEnv.getElementsAnnotatedWith(AdapterModel::class.java)
@@ -60,6 +60,6 @@ class CustomAnnotationProcessor : AbstractProcessor() {
 
 
     companion object {
-        const val KAPT_KOTLIN_GENERATED_OPTION_NAME = "kapt.kotlin.generated"
+        const val KAPT_KOTLIN_GENERATED_PACKAGE_NAME = "kapt.kotlin.generated"
     }
 }

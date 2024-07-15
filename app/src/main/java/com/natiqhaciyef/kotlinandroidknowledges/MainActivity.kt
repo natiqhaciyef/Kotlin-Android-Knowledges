@@ -3,6 +3,9 @@ package com.natiqhaciyef.kotlinandroidknowledges
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.natiqhaciyef.kotlinandroidknowledges.android.annotations_advanced.Person
+
+//val inset = context.convertDpToPixel(16)
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val calendar = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
 
-        println(calendar)
+        val person = Person("Natig", "Baku")
+        println(person)
     }
 }
