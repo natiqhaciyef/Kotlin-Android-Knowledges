@@ -35,25 +35,24 @@ class NetworkActivity : AppCompatActivity() {
 
         list = mutableListOf()
         compositeDisposable = CompositeDisposable()
-//        loadDataWithCall()
-//        loadDataWithRxJava()
-//        loadDataWithCoroutines()
-
         binding.getData.setOnClickListener {
-            CoroutineScope(Dispatchers.Main).launch{
-                withContext(Dispatchers.IO){
-                    practice()
+            CoroutineScope(Dispatchers.Main).launch {
+                withContext(Dispatchers.IO) {
+//                    practice()
+                    loadDataWithCall()
+//                    loadDataWithRxJava()
+//                    loadDataWithCoroutines()
                 }
             }
         }
     }
 
-    private suspend fun practice(){
+    private suspend fun practice() {
         val data = RetrofitConfig.config.getAllRandomRecipes()
         println(data)
     }
 
-    fun loadDataWithCall() {
+    private fun loadDataWithCall() {
         val call = RetrofitCallService.service.getAllCountriesCall()
         call.enqueue(object : Callback<List<CountryDataClass>> {
             override fun onResponse(
@@ -65,7 +64,7 @@ class NetworkActivity : AppCompatActivity() {
                     response.body()?.let {
                         list.clear()
                         list.addAll(it.toMutableList())
-                        println("In Response: $list")
+                        println(list)
                     }
                 } else {
                     // fail
