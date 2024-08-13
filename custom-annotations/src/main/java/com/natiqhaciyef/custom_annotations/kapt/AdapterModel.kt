@@ -1,4 +1,4 @@
-package com.natiqhaciyef.custom_annotations
+package com.natiqhaciyef.custom_annotations.kapt
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)

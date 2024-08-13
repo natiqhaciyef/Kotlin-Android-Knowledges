@@ -1,4 +1,4 @@
-package com.natiqhaciyef.custom_annotations
+package com.natiqhaciyef.custom_annotations.kapt
 
 data class ModelData(
    var packageName: String,

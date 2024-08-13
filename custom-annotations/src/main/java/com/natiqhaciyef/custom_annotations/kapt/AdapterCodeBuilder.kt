@@ -1,4 +1,4 @@
-package com.natiqhaciyef.custom_annotations
+package com.natiqhaciyef.custom_annotations.kapt
 
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FunSpec

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id "kotlin-kapt"
+    id 'com.google.devtools.ksp'
     id 'androidx.navigation.safeargs'
     id 'dagger.hilt.android.plugin'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
@@ -64,6 +65,9 @@ dependencies {
 
     implementation(project(":custom-annotations"))
     kapt project(':custom-annotations')
+
+    implementation project(":custom-annotations")
+    ksp project(":custom-annotations")
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -155,6 +159,9 @@ dependencies {
 
     // reflection
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
+
+    // ksp
+    implementation "com.google.devtools.ksp:symbol-processing-api:1.6.20-1.0.5"
 
     // palm api dependencies
 //    implementation("com.google.cloud:gapic-google-cloud-ai-generativelanguage-v1beta3-java:0.0.0-SNAPSHOT")
