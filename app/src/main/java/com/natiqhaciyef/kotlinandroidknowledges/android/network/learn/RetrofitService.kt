@@ -7,15 +7,13 @@ import retrofit2.http.GET
 interface RetrofitService {
 
     // GET, POST, DELETE, UPDATE
-//    natiqhaciyef/Country-JSON/main/Country%20API%20kit/Country%20API.json?token=GHSAT0AAAAAACBSOQ665GEVVUPUTJR4SPCSZCSAX3A
 
-
-    @GET("natiqhaciyef/Country-JSON/main/Country%20API%20kit/Country%20API.json?token=GHSAT0AAAAAACBSOQ665GEVVUPUTJR4SPCSZCSAX3A")
+    @GET("")
     fun getAllCountriesCall(): Call<List<CountryDataClass>>     // Call with Retrofit
 
-    @GET("natiqhaciyef/Country-JSON/main/Country%20API%20kit/Country%20API.json?token=GHSAT0AAAAAACBSOQ67ZBHEAIYGM7SLROUAZCSIYVQ")
+    @GET("")
     fun getAllCountriesRxJava(): Observable<List<CountryDataClass>>     // Observable with Retrofit
 
-    @GET("natiqhaciyef/Country-JSON/main/Country%20API%20kit/Country%20API.json?token=GHSAT0AAAAAACBSOQ67ZBHEAIYGM7SLROUAZCSIYVQ")
+    @GET("")
     suspend fun getAllCountriesCoroutine(): List<CountryDataClass>
 }
