@@ -49,11 +49,13 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
 dependencies {
     implementation project(':custom-annotations')
+    implementation 'androidx.activity:activity:1.9.1'
     def lifecycleVersion = "2.5.1"
     def retrofitVersion = '2.9.0'
     def fragmentVersion = "1.5.2"
