@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_test_graph"
+    app:startDestination="@id/emptyNavFragment">
+
+    <fragment
+        android:id="@+id/emptyNavFragment"
+        android:name="com.natiqhaciyef.kotlinandroidknowledges.android.navigation.EmptyNavFragment"
+        android:label="fragment_empty_nav"
+        tools:layout="@layout/fragment_empty_nav" >
+        <action
+            android:id="@+id/action_emptyNavFragment_to_emptyNavSecondFragment"
+            app:destination="@id/emptyNavSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyNavSecondFragment"
+        android:name="com.natiqhaciyef.kotlinandroidknowledges.android.navigation.EmptyNavSecondFragment"
+        android:label="fragment_empty_nav_second"
+        tools:layout="@layout/fragment_empty_nav_second" />
+</navigation>
