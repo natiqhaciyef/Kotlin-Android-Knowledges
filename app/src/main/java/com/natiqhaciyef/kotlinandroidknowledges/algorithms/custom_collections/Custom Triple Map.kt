@@ -11,8 +11,8 @@ class TripleMap<T, R, K> {
     private val list = mutableListOf<TripleEntry<T, R, K>>()
     val size = list.size
 
-    constructor(pairs: Array<out TripleEntry<T, R, K>> = arrayOf()) {
-        list.addAll(pairs)
+    constructor(triples: Array<out TripleEntry<T, R, K>> = arrayOf()) {
+        list.addAll(triples)
     }
 
     fun print() {
@@ -39,8 +39,8 @@ class TripleMap<T, R, K> {
     }
 }
 
-fun <A, B, C> tripleMapOf(vararg pairs: TripleMap.TripleEntry<A, B, C>): TripleMap<A, B, C> =
-    TripleMap(pairs)
+fun <A, B, C> tripleMapOf(vararg triples: TripleMap.TripleEntry<A, B, C>): TripleMap<A, B, C> =
+    TripleMap(triples)
 
 
 fun main() {

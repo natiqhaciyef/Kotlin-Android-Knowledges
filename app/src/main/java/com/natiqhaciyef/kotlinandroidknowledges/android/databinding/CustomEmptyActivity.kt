@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.InverseBindingAdapter
 import com.natiqhaciyef.kotlinandroidknowledges.R
 import com.natiqhaciyef.kotlinandroidknowledges.databinding.ActivityCustomEmptyBinding
 

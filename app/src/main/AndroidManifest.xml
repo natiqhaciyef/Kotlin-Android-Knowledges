@@ -20,8 +20,8 @@
         android:theme="@style/Theme.KotlinAndroidKnowledges"
         tools:targetApi="31">
         <activity
-            android:name=".android.navigation.NavigationTestActivity"
-            android:exported="true" >
+            android:name=".android.work_manager.SecondWorkManagerActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,9 +29,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".android.navigation.NavigationTestActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".android.databinding.CustomEmptyActivity"
             android:exported="false" />
-
         <activity
             android:name=".android.result_launcher.HandlerActivity"
             android:exported="false" />
@@ -44,6 +48,7 @@
             android:value="AIzaSyDqIBd6VcWfIxDB8ks_JSqjQ34ucIScjso" />
 
         <service android:name=".android.services.CustomService" />
+
         <receiver android:name=".android.broadcast_receiver.CustomLocalBroadcastReceiver" />
         <receiver android:name=".android.broadcast_receiver.AirPlaneModeReceiver" />
         <receiver
@@ -92,11 +97,13 @@
         <activity
             android:name=".android.network.NetworkActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".android.broadcast_receiver.TestBroadcastReceiverActivity"
@@ -131,11 +138,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
 
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
