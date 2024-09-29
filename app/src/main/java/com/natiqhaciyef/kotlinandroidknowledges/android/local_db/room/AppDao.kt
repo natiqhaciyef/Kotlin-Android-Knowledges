@@ -16,4 +16,14 @@ interface AppDao {
 
     @Delete
     suspend fun deleteCountry(countryEntity: CountryEntity) //: Long
+
+
+    @Query("SELECT * FROM custom_field")
+    suspend fun getCustomFields(): List<CustomField>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertCustomField(customField: CustomField)
+
+    @Delete
+    suspend fun deleteCustomField(customField: CustomField)
 }

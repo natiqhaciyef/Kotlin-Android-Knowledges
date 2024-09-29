@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 
-@Database(entities = [CountryEntity::class], version = 1)
+@Database(entities = [CountryEntity::class, CustomField::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getAppDao(): AppDao
