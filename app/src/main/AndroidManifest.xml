@@ -20,7 +20,7 @@
         android:theme="@style/Theme.KotlinAndroidKnowledges"
         tools:targetApi="31">
         <activity
-            android:name=".android.dependency_inject.TestingDaggerActivity"
+            android:name=".android.handler.HandlerTestActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,13 +29,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".android.work_manager.SecondWorkManagerActivity"
+            android:name=".android.dependency_inject.TestingDaggerActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".android.navigation.NavigationTestActivity"
+            android:name=".android.work_manager.SecondWorkManagerActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".android.navigation.NavigationTestActivity"
+            android:exported="true" />
         <activity
             android:name=".android.databinding.CustomEmptyActivity"
             android:exported="false" />
