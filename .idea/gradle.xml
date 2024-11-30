@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/custom-annotations" />
+            <option value="$PROJECT_DIR$/technical_skills_java" />
+            <option value="$PROJECT_DIR$/technical_skills_kotlin" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
