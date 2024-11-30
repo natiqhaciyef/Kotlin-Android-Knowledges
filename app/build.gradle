@@ -23,6 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 //        testInstrumentationRunner = "com.natiqhaciyef.witapplication.util.HiltTestRunner"
 
+        buildConfigField("String","BASE_URL",MY_URL)
     }
 
     buildTypes {
@@ -53,6 +54,7 @@ android {
     buildFeatures {
         viewBinding true
         dataBinding true
+        buildConfig true
     }
 }
 
@@ -93,9 +95,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 
-    // Okhttp logging
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
-
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
@@ -127,7 +126,8 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
     implementation 'com.squareup.moshi:moshi:1.14.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 
     // Dagger hilt implementation
     implementation "com.google.dagger:hilt-android:2.44"
@@ -184,6 +184,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("org.mockito:mockito-core:4.7.0")
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.10.0'
 
     // Android Test Implementations
     androidTestImplementation("junit:junit:4.13.2")

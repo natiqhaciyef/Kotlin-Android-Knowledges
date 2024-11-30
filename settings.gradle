@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "Kotlin Android Knowledges"
 include ':app'
 include ':custom-annotations'
+include ':technical_skills_java'
+include ':technical_skills_kotlin'

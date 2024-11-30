@@ -17,5 +17,6 @@ data class CountryDataClass(
     val region: String,
     @SerializedName("religion")
     val religion: String,
+    @SerializedName("prefix")
     var prefix: String? = null
 )
