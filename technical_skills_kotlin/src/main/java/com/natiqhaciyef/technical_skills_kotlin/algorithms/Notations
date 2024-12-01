@@ -1,0 +1,8 @@
+// Ѳ, ѳ -> theta (n time)
+// Ω -> omega (minimum time)
+// O, o -> big O (maximum time)
+
+a => temporary or not necessary params
+p => calculated params or processes
+t => conditional cases
+k or n => loops (but it is not necessary because it is the result of current function = f(n))
