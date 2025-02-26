@@ -22,11 +22,6 @@
         <activity
             android:name=".android.handler.HandlerTestActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".android.dependency_inject.TestingDaggerActivity"
@@ -35,7 +30,19 @@
         </activity>
         <activity
             android:name=".android.work_manager.SecondWorkManagerActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".ArtActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".android.navigation.NavigationTestActivity"
             android:exported="true" />

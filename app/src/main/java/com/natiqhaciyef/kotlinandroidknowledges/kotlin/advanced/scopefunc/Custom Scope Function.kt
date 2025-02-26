@@ -1,6 +1,5 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.scopefunc
 
-import com.natiqhaciyef.kotlinandroidknowledges.technical_skills.other.findEfficientSumOf
 
 // Custom scope function
 class Person(var name: String, var age: Int)

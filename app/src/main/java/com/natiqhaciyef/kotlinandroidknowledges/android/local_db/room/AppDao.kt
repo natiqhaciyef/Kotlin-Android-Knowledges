@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface AppDao {
     @Query("SELECT * FROM country_table")
-    suspend fun getCountry(): List<CountryEntity>
+    suspend fun getCountryFromDatabase(): List<CountryEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertCountry(countryEntity: CountryEntity) //: Long
@@ -19,7 +19,7 @@ interface AppDao {
 
 
     @Query("SELECT * FROM custom_field")
-    suspend fun getCustomFields(): List<CustomField>
+    suspend fun getCustomFieldsFromDatabase(): List<CustomField>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertCustomField(customField: CustomField)

@@ -23,7 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 //        testInstrumentationRunner = "com.natiqhaciyef.witapplication.util.HiltTestRunner"
 
-        buildConfigField("String","BASE_URL",MY_URL)
+        buildConfigField("String", "BASE_URL", MY_URL)
     }
 
     buildTypes {
@@ -34,8 +34,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     packagingOptions {
@@ -46,7 +46,7 @@ android {
         }
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
         freeCompilerArgs += [
                 "-Xjvm-default=all"
         ]
@@ -86,9 +86,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     // Room db
-    implementation "androidx.room:room-runtime:2.5.0"
-    kapt "androidx.room:room-compiler:2.5.0"
-    implementation "androidx.room:room-ktx:2.5.0"
+    implementation "androidx.room:room-runtime:2.6.1"
+    ksp "androidx.room:room-compiler:2.6.1"
+//    kapt "androidx.room:room-compiler:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
+    implementation "androidx.room:room-paging:2.6.1"
 
     // RxJava 3
     implementation("androidx.room:room-rxjava3:2.5.1")       //rxjava
@@ -130,8 +132,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 
     // Dagger hilt implementation
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-android-compiler:2.44"
+    implementation "com.google.dagger:hilt-android:2.50"
+    ksp "com.google.dagger:hilt-compiler:2.50"
 
     implementation 'com.squareup:kotlinpoet:1.4.4'
 
