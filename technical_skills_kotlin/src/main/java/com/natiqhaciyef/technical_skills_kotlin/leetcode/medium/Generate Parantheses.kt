@@ -1,62 +1,66 @@
 package com.natiqhaciyef.technical_skills_kotlin.leetcode.medium
 
 
-fun nextPermutation(nums: IntArray): Unit {
-    var first = nums.lastIndex - 1
-    var second = nums.lastIndex
+val storage = mutableListOf<String>()
 
-    if (nums.size < 3) {
-        createPermutation(first, second, nums)
+fun generateParenthesis(n: Int): List<String> {
+    recursionParenthesis(n*2)
+
+    val result = storage.filter {
+        isValid(it)
+    }
+
+    return result
+}
+
+fun isValid(str: String): Boolean {
+    var countCorrect = 0
+
+    if (str.startsWith(")") || str.endsWith("("))
+        return false
+
+
+
+    for (ch in str) {
+        if (ch == '(')
+            countCorrect += 1
+        else
+            countCorrect -= 1
+
+        if (countCorrect == -1)
+            return false
+    }
+
+    return countCorrect == 0
+}
+
+fun recursionParenthesis(count: Int, current: String = "") {
+    if (current.length == count) {
+        storage.add(current)
         return
     }
 
-    while (true) {
-        val created = createPermutation(first, second, nums)
-        if (created[first] != nums[first] || created[second] != nums[second]) {
-            return
-        }
 
-        if (first > 0)
-            first -= 1
-        else if (second > 2)
-            second -= 1
-    }
-
+    recursionParenthesis(count, current + "(")
+    recursionParenthesis(count, current + ")")
 }
 
-fun createPermutation(
-    firstIndex: Int,
-    secondIndex: Int,
-    nums: IntArray
-): IntArray {
 
-    nums[firstIndex] = nums[firstIndex] * nums[secondIndex]
-    nums[secondIndex] = nums[firstIndex] / nums[secondIndex]
-    nums[firstIndex] = nums[firstIndex] / nums[secondIndex]
-
-    return nums
-}
-
-fun nextPermutationShortened(nums: IntArray) {
-    var i = nums.size - 2
-    while (i >= 0 && nums[i] >= nums[i + 1]) {
-        i--
+//example
+fun generateBinaryStrings(n: Int, current: String = "") {
+    if (current.length == n) {
+        println(current) // Print the generated string
+        return
     }
 
-    if (i >= 0) {
-        var j = nums.size - 1
-        while (nums[j] <= nums[i]) {
-            j--
-        }
-        nums[i] = nums[j].also { nums[j] = nums[i] }
-    }
-    nums.reverse(i + 1, nums.size)
-}
+    // Add '0' and recurse
+    generateBinaryStrings(n, current + "0")
 
+    // Add '1' and recurse
+    generateBinaryStrings(n, current + "1")
+}
 
 fun main() {
-
-    nextPermutation(intArrayOf(1, 2, 3))
-    nextPermutation(intArrayOf(1, 1, 5))
+    println(generateParenthesis(3))
+//    generateBinaryStrings(3)
 }
-
