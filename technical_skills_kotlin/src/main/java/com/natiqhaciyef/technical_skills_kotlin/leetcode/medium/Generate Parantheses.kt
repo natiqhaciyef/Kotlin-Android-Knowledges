@@ -19,8 +19,6 @@ fun isValid(str: String): Boolean {
     if (str.startsWith(")") || str.endsWith("("))
         return false
 
-
-
     for (ch in str) {
         if (ch == '(')
             countCorrect += 1
@@ -40,9 +38,8 @@ fun recursionParenthesis(count: Int, current: String = "") {
         return
     }
 
-
-    recursionParenthesis(count, current + "(")
-    recursionParenthesis(count, current + ")")
+    recursionParenthesis(count, "$current(")
+    recursionParenthesis(count, "$current)")
 }
 
 
