@@ -1,48 +1,59 @@
 package com.natiqhaciyef.technical_skills_kotlin.leetcode.medium
 
-import kotlin.random.Random
+fun fourSum(nums: IntArray, target: Int): List<List<Int>> {
+    val result = mutableListOf<List<Int>>()
 
+    if(nums.size < 4) return listOf()
+    if(nums.size == 4)
+        return if(nums.sum() != target || nums.sum() < 0)
+            listOf()
+        else{
+            val list = nums.toList()
+            result.add(list)
+            result
+        }
 
-fun fourSum(nums: List<Int>, target: Int): List<List<Int>> {
-    val count = nums.size
-    val countHolder = mutableSetOf<Int>()
-    val holder = mutableListOf<List<Int>>()
+    nums.sort() // Sort the array first (O(n log n))
 
-    while (nums.toSet() != countHolder) {
-        var a = generateRandom(count)
-        var b = generateRandom(count)
-        var c = generateRandom(count)
-        var d = generateRandom(count)
+    val n = nums.size
+    for (i in 0 until n - 3) {
+        // Avoid duplicate values for i
+        if (i > 0 && nums[i] == nums[i - 1]) continue
 
-        if (
-            (a != b && a != c && a != d && b != c && b != d && c != d) &&
-            (nums[a] != nums[b] && nums[a] != nums[c] && nums[a] != nums[d] && nums[b] != nums[c] && nums[b] != nums[d] && nums[c] != nums[d])
-        ) {
-            val result = listOf(nums[a], nums[b], nums[b], nums[b])
-            if (result.sum() == target) {
-                if (!holder.contains(result))
-                    holder.add(result)
-                countHolder.addAll(result)
-                println("In $countHolder - $holder")
+        for (j in i + 1 until n - 2) {
+            // Avoid duplicate values for j
+            if (j > i + 1 && nums[j] == nums[j - 1]) continue
+
+            var left = j + 1
+            var right = n - 1
+
+            while (left < right) {
+                val sum = nums[i] + nums[j] + nums[left] + nums[right]
+
+                when {
+                    sum < target -> left++  // Increase sum by moving left forward
+                    sum > target -> right-- // Decrease sum by moving right backward
+                    else -> {
+                        result.add(listOf(nums[i], nums[j], nums[left], nums[right]))
+
+                        // Skip duplicate values for left and right
+                        while (left < right && nums[left] == nums[left + 1]) left++
+                        while (left < right && nums[right] == nums[right - 1]) right--
+
+                        // Move pointers after adding a valid quadruplet
+                        left++
+                        right--
+                    }
+                }
             }
-        } else {
-            println("Out")
-            a = generateRandom(count)
-            b = generateRandom(count)
-            c = generateRandom(count)
-            d = generateRandom(count)
         }
     }
-
-    return holder
+    return result
 }
 
-fun generateRandom(until: Int) = Random.nextInt(0, until)
 
 fun main() {
-
-    val nums = listOf(10, 11, 12, 13, 9, 8, 7, 15, 5)
-    val target = 40
-
-    println(fourSum(nums, target))
+    val array = intArrayOf(1000000000,1000000000,1000000000,1000000000)
+    println(array.sum())
+    println(fourSum(array, -294967296))
 }
