@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.interview
 
 fun strStr(haystack: String, needle: String): Int {
     if (haystack == needle || haystack.startsWith(needle))

@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.interview
 
 fun lengthOfLastWord(s: String): Int {
     val trimmedS = s.trimEnd()

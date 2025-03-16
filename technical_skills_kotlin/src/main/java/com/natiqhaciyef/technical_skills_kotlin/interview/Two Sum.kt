@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.interview
 
 fun twoSum(nums: IntArray, target: Int): IntArray {
 
@@ -19,5 +19,5 @@ fun twoSum(nums: IntArray, target: Int): IntArray {
 
 fun main() {
     val nums1 = intArrayOf(3, 2, 4)
-    println(twoSum(nums1, 6))
+    println(com.natiqhaciyef.technical_skills_kotlin.interview.twoSum(nums1, 6))
 }

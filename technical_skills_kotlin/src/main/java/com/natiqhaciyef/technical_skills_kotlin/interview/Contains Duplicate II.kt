@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.interview
 
 
 fun containsNearbyDuplicate(nums: IntArray, k: Int): Boolean {

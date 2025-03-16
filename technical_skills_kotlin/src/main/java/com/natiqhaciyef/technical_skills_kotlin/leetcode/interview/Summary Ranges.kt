@@ -1,2 +1,0 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
-

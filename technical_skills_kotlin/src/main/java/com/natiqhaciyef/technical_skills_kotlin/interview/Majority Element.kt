@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.interview
 
 fun majorityElementInefficient(nums: IntArray): Int {
     if (nums.isEmpty()) return 0
