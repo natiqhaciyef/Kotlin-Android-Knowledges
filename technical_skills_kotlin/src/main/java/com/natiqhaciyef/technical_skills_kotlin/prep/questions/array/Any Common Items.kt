@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.prep.questions
+package com.natiqhaciyef.technical_skills_kotlin.prep.questions.array
 
 
 fun anyCommonItems(array1: IntArray, array2: IntArray): Boolean {
