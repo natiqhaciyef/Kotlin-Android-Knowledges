@@ -32,9 +32,9 @@ interface LinkedList<T : Any> {
     var size: Int
     val hasNext: Boolean
 
-    fun push(value: T)
+    fun insertHead(value: T)
 
-    fun append(value: T)
+    fun insertTail(value: T)
 
     fun printNodes()
 
@@ -54,8 +54,8 @@ interface LinkedList<T : Any> {
 }
 
 
-class LinkedListImpl<T : Any>(
-    nodes: Node<T>? = null
+data class LinkedListImpl<T : Any>(
+    val nodes: Node<T>? = null
 ) : LinkedList<T> {
     override var head: Node<T>? = nodes
     override var tail: Node<T>? = null
@@ -69,7 +69,7 @@ class LinkedListImpl<T : Any>(
         println(head.toString())
     }
 
-    override fun push(value: T) {
+    override fun insertHead(value: T) {
         head = Node(value = value, next = head)
 
         if (tail == null) {
@@ -79,9 +79,9 @@ class LinkedListImpl<T : Any>(
         size += 1
     }
 
-    override fun append(value: T) {
+    override fun insertTail(value: T) {
         if (size == 0) {
-            push(value)
+            insertHead(value)
             return
         }
 
@@ -118,7 +118,7 @@ class LinkedListImpl<T : Any>(
 
     override fun insert(value: T, afterNode: Node<T>) {
         if (tail == afterNode) {
-            append(value)
+            insertTail(value)
         }
 
         val newNode = Node(value, next = afterNode.next)
@@ -128,13 +128,17 @@ class LinkedListImpl<T : Any>(
 
     override fun remove(value: T) {
         if (size == 0) return
+        if (head?.value == value) {
+            head = head?.next
+            printNodes()
+
+            return
+        }
 
         var currentNode = head
-        var currentIndex = 0
 
         while (currentNode?.next != null) {
             currentNode = currentNode.next
-            currentIndex += 1
 
             if (currentNode?.next?.value == value) {
                 currentNode.next = currentNode.next?.next
@@ -174,43 +178,49 @@ class LinkedListImpl<T : Any>(
         tail = prev
     }
 
+    fun getAt(index: Int): Node<T>? {
+        var current = this.head
+        var counter = 0
+
+        while (current?.next != null) {
+            current = current.next
+
+            if (index == counter)
+                return current!!
+
+            counter += 1
+        }
+
+        return null
+    }
+
     override fun removeAfter(node: Node<T>) {
         if (node.next == tail) tail = node
         if (node.next != null) size -= 1
         node.next = node.next?.next
     }
+
+    fun reverse() {
+        val linkedList: LinkedList<T> = this
+        var headTemp = this.head
+        val currentSize = linkedList.size
+
+        while (headTemp?.next != null) {
+            linkedList.insertHead(headTemp.value)
+            headTemp = headTemp.next
+        }
+
+        repeat(currentSize) {
+            removeLast()
+        }
+
+        size /= 2
+        linkedList.insertHead(headTemp?.value!!)
+//        linkedList.printNodes()
+
+        this.head = linkedList.head
+    }
 }
-
-fun main() {
-    val linkedList = LinkedListImpl<Int>()
-
-    linkedList.push(49)
-    linkedList.push(12)
-    linkedList.push(469)
-    linkedList.push(9)
-    linkedList.push(5)
-    linkedList.push(77)
-    linkedList.push(8)
-    linkedList.push(19)
-
-    linkedList.append(100000)
-    linkedList.append(4666)
-
-    val afterNode = linkedList.nodeAt(3)
-    linkedList.insert(71, afterNode!!)
-
-//    val findNodeIndex = linkedList.indexOf(77)
-//    println(findNodeIndex)
-
-    linkedList.printNodes()
-
-    linkedList.remove(77)
-    linkedList.removeLast()
-    linkedList.pop()
-    linkedList.printNodes()
-}
-
-
 
 fun <T : Any> LinkedListImpl<T>.printInReversed() {
     this.nodeAt(0)?.printReversed()
@@ -231,16 +241,51 @@ fun <T : Any> LinkedListImpl<T>.getMiddle(): Node<T>? {
     return slow
 }
 
-
-fun reverseLinkedList(linkedList: LinkedListImpl<Int>): LinkedListImpl<Int>?{
+fun reverseLinkedList(linkedList: LinkedListImpl<Int>): LinkedListImpl<Int>? {
     val customLinkedList = LinkedListImpl<Int>()
     val firstNode = linkedList.nodeAt(0) ?: return null
     firstNode.reverseNode(customLinkedList)
     return customLinkedList
 }
 
-fun Node<Int>.reverseNode(linkedList: LinkedList<Int>){
+fun Node<Int>.reverseNode(linkedList: LinkedList<Int>) {
     this.next?.reverseNode(linkedList)
-    linkedList.push(this.value)
+    linkedList.insertHead(this.value)
     return
+}
+
+fun main() {
+    val linkedList = LinkedListImpl<Int>()
+
+    linkedList.insertHead(49)
+    linkedList.insertTail(12)
+    linkedList.insertTail(469)
+    linkedList.insertTail(9)
+    linkedList.insertTail(5)
+    linkedList.insertTail(77)
+//    linkedList.push(8)
+//    linkedList.push(19)
+//
+//    linkedList.append(100000)
+//    linkedList.append(4666)
+//
+//    val afterNode = linkedList.nodeAt(3)
+//    linkedList.insert(71, afterNode!!)
+//
+////    val findNodeIndex = linkedList.indexOf(77)
+////    println(findNodeIndex)
+//
+//    linkedList.printNodes()
+//
+//    linkedList.remove(77)
+//    linkedList.removeLast()
+//    linkedList.pop()
+
+    println("Nodes")
+    linkedList.printNodes()
+    println()
+    println("Reversed")
+    linkedList.reverse()
+    linkedList.printNodes()
+//    linkedList.printNodes()
 }

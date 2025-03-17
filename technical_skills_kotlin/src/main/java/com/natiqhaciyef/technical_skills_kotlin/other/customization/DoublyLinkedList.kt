@@ -149,4 +149,32 @@ fun main() {
 
     println(doublyLinkedList.findIndexOf(99))
     println(doublyLinkedList.findIndexOf(1))
+
+    mergeAlternately("ab", "pqrs")
+}
+
+fun mergeAlternately(word1: String, word2: String): String {
+    var result = ""
+    val size = minOf(word1.length, word2.length)
+    val element = if(word1.length == size) word2 else word1
+
+
+
+    println("Size: $size")
+    println("Element: $element")
+
+    for (i in 0 until size){
+        result += word1[i]
+        result += word2[i]
+    }
+
+    if(word1.length != word2.length) {
+        val new = element.substring(size, element.lastIndex+1)
+        result += new
+        println("In")
+    }
+
+    println(result)
+
+    return result
 }
