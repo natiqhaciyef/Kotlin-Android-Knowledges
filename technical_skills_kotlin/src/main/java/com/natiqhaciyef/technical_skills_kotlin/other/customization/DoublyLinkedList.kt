@@ -1,106 +1,152 @@
 package com.natiqhaciyef.technical_skills_kotlin.other.customization
 
-class DoublyNode<T>(var data: T, var prev: DoublyNode<T>? = null, var next: DoublyNode<T>? = null)
 
-class DoublyLinkedList<T> {
+class DoublyNode<T : Any>(
+    var data: T,
+    var next: DoublyNode<T>? = null,
+    var prev: DoublyNode<T>? = null
+)
+
+class DoublyLinkedList<T : Any> {
     private var head: DoublyNode<T>? = null
     private var tail: DoublyNode<T>? = null
-    private var size: Int = 0  // Track the size
+    private var length = 0
 
-    // Get the size of the list
-    fun getSize(): Int {
-        return size
+    private fun createNode(value: T): DoublyNode<T> {
+        return DoublyNode(value)
     }
 
-    fun push(value: T) {
-        val newNode = DoublyNode(value, null, head)
+    private fun isInitialStageApplied(node: DoublyNode<T>): Boolean {
+        var result = false
+        if (tail == null) {
+            tail = node
+            result = true
+        }
+
+        if (head == null) {
+            head = node
+            result = true
+        }
+
+        return result
+    }
+
+    fun getAt(index: Int): DoublyNode<T>? {
+        var counter = 0
+        var current = head
+        while (counter < index && current?.next != null) {
+            current = current.next
+            counter += 1
+        }
+
+        return current
+    }
+
+    fun printList() {
+        var current = head
+        while (current?.next != null) {
+            print("${current.data} -> ")
+            current = current.next
+        }
+
+        print("${current?.data}")
+    }
+
+    // 2 -> 1 ->
+    fun insertToHead(value: T) {
+        val newNode = createNode(value)
+        if (isInitialStageApplied(newNode))
+            return
+
         head?.prev = newNode
+        newNode.next = head
         head = newNode
-        size++
+
+        length += 1
     }
 
-    // Delete a node with a given value
-    fun delete(value: T) {
+    fun insertToTail(value: T) {
+        val newNode = createNode(value)
+
+        if (isInitialStageApplied(newNode))
+            return
+
+        tail?.next = newNode
+        newNode.prev = tail
+        tail = newNode
+
+        length += 1
+    }
+
+    fun insertAfter(index: Int, value: T) {
+        val newNode = createNode(value)
+
+        if (isInitialStageApplied(newNode))
+            return
+
+        val currentInIndex = getAt(index)
+        val holdingNext = currentInIndex?.next
+        currentInIndex?.next = newNode
+        newNode.prev = currentInIndex
+
+        newNode.next = holdingNext
+        holdingNext?.prev = newNode
+    }
+
+    // write remove functions
+    fun removeTail() {
+        tail = tail?.prev
+        tail?.next = null
+    }
+
+    fun removeHead() {
+        head = head?.next
+        head?.prev = null
+    }
+
+    fun removeIndexOf(index: Int) {
+        val elementOfIndex = getAt(index)
+        val prev = elementOfIndex?.prev
+        val next = elementOfIndex?.next
+
+        prev?.next = next
+        next?.prev = prev
+    }
+
+    fun findIndexOf(value: T): Int {
         var current = head
-        while (current != null) {
-            if (current.data == value) {
-                if (current.prev != null) {
-                    current.prev?.next = current.next
-                } else {
-                    head = current.next
-                }
-                if (current.next != null) {
-                    current.next?.prev = current.prev
-                } else {
-                    tail = current.prev
-                }
-                size--  // Decrease size
-                return
-            }
-            current = current.next
-        }
-    }
+        var counter = 0
 
-    // Display list from head to tail
-    fun displayForward() {
-        var current = head
-        while (current != null) {
-            print("${current.data} ⇄ ")
-            current = current.next
-        }
-        println("null")
-    }
+        while (current?.next != null) {
+            if (current.data == value)
+                return counter
 
-    fun findFirst(): DoublyNode<T>? {
-        return head
+            current = current.next
+            counter += 1
+        }
+
+        return -1
     }
 }
 
-// Example Usage
 fun main() {
-    val list = DoublyLinkedList<Int>()
+    val doublyLinkedList = DoublyLinkedList<Int>()
+    doublyLinkedList.insertToHead(12)
+    doublyLinkedList.insertToTail(41)
+    doublyLinkedList.insertToTail(99)
+    doublyLinkedList.insertToTail(0)
+    doublyLinkedList.insertToTail(4)
+    doublyLinkedList.insertToTail(8)
 
-    list.push(10)
-    list.push(20)
-    list.push(30)
-    list.push(45)
+    doublyLinkedList.insertAfter(2, 21)
 
-    list.displayForward()
+    doublyLinkedList.printList()
+    println()
+    println(doublyLinkedList.getAt(2)?.data)
+    doublyLinkedList.removeHead()
+    doublyLinkedList.printList()
+    println()
 
-    val new = list.reverseLinkedList()
-    new?.displayForward()
-
-//    println("List size: ${list.getSize()}")  // 3
-//    println("Forward:")
-//    list.displayForward() // Output: 30 ⇄ 10 ⇄ 20 ⇄ null
-//
-//    println("Deleting 10...")
-//    list.delete(10)
-//
-//    println("List size: ${list.getSize()}")  // 2
-//    println("Is list empty? ${list.isEmpty()}")  // false
-//    list.displayForward() // Output: 30 ⇄ 20 ⇄ null
-
-//    println(list.findFirst()?.data)
-}
-
-
-val customLinkedList = DoublyLinkedList<Int>()
-
-fun DoublyLinkedList<Int>.reverseLinkedList(): DoublyLinkedList<Int>? {
-    if (this.getSize() == 0) println("ALMA")
-
-    // I should create reverse mechanism with recursion
-    this.findFirst()?.reverseItem()
-    return customLinkedList
-}
-
-fun DoublyNode<Int>.reverseItem() {
-    val current = this.next
-
-    current?.reverseItem()
-    customLinkedList.push(this.data)
-
-    if (current == null)
-        return
+    println(doublyLinkedList.findIndexOf(99))
+    println(doublyLinkedList.findIndexOf(1))
 }
