@@ -220,6 +220,22 @@ data class LinkedListImpl<T : Any>(
 
         this.head = linkedList.head
     }
+
+    fun reverse(head: Node<T>?): Node<T>? {
+        var prev: Node<T>? = null
+        var current = head
+
+        //49 -> 12 -> 469 -> 9 -> 5 -> 77
+        while (current != null) {
+            val next = current.next  // Store next node
+            current.next = prev      // Reverse pointer
+            prev = current           // Move prev forward
+            current = next           // Move current forward
+
+            println(prev)
+        }
+        return prev  // New head of reversed list
+    }
 }
 
 fun <T : Any> LinkedListImpl<T>.printInReversed() {
@@ -285,7 +301,8 @@ fun main() {
     linkedList.printNodes()
     println()
     println("Reversed")
-    linkedList.reverse()
-    linkedList.printNodes()
+//    linkedList.reverse()
+    println(linkedList.reverse(linkedList.head))
+//    linkedList.printNodes()
 //    linkedList.printNodes()
 }
