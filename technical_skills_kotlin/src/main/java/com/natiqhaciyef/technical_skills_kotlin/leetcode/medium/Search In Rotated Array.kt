@@ -26,7 +26,7 @@ fun shiftedList(nums: IntArray): Int {
 // mid 2 -> 0 and 3  (1 & 6)    // mid -> 5
 
 
-fun binarySearch(nums: IntArray, target: Int, left: Int, right: Int): Int {
+private fun binarySearch(nums: IntArray, target: Int, left: Int, right: Int): Int {
     if (left > right) return -1
 
     val mid = left + (right - left) / 2
