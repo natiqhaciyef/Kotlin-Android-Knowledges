@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.other.customization
+package com.natiqhaciyef.technical_skills_kotlin.algorithms.datastructures
 
 class NodeElement<T : Any>(
     var value: T,

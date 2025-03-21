@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.other.customization
+package com.natiqhaciyef.technical_skills_kotlin.algorithms.datastructures
 
 interface Queue<T: Any> {
     val count: Int
@@ -11,7 +11,7 @@ interface Queue<T: Any> {
     fun dequeue(): T?
 }
 
-class QueueImpl<T: Any>: Queue<T>{
+class QueueImpl<T: Any>: Queue<T> {
     private val storage = arrayListOf<T>()
 
     override val count: Int
