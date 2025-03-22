@@ -13,6 +13,8 @@ interface Queue<T: Any> {
 
 class QueueImpl<T: Any>: Queue<T> {
     private val storage = arrayListOf<T>()
+    val size: Int
+        get() = storage.size
 
     override val count: Int
         get() = storage.size
