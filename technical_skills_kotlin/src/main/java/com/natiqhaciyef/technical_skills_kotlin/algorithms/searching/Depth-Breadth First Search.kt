@@ -143,7 +143,6 @@ class BinaryTree {
         return result
     }
 
-
     // In order
     fun inOrderDfs(): List<Int> {
         if (this.root == null) return listOf()
