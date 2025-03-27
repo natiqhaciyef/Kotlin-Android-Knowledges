@@ -146,7 +146,6 @@ class BinaryTree {
     // In order
     fun inOrderDfs(): List<Int> {
         if (this.root == null) return listOf()
-
         val result = mutableListOf<Int>()
         val stack = ArrayDeque<BinaryTreeNode>()
         var current: BinaryTreeNode? = this.root
