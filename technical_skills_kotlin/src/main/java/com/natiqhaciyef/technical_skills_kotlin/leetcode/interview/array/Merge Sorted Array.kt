@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int) {
     for (i in nums2.indices) {

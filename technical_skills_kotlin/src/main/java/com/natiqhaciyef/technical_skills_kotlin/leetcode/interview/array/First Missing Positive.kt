@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 fun firstMissingPositive(nums: IntArray): Int {
     // find the number between positives
@@ -16,7 +16,7 @@ fun firstMissingPositive(nums: IntArray): Int {
             max = num
 
         // we should find the min of the array, but also positive
-        if((num < min && num > 0) || min <= 0)
+        if((num in 1..<min) || min <= 0)
             min = num
 
         map[num] = true

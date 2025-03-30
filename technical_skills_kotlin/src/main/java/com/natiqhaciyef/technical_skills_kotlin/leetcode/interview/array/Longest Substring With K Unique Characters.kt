@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 fun longestSubstringWorst(str: String, k: Int): Int {
     if (str.isEmpty()) return 0

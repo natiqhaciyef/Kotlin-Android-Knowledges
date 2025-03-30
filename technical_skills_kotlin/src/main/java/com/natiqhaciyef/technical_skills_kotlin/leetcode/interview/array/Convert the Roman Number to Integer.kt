@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 fun romanToInt(s: String): Int {
     var number = 0

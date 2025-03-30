@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 
 fun maxProduct(nums: IntArray): Int {
@@ -13,7 +13,7 @@ fun maxProduct(nums: IntArray): Int {
         val tempMax = maxOf(nums[i], nums[i] * maxProd, nums[i] * minProd)
         minProd = minOf(nums[i], nums[i] * maxProd, nums[i] * minProd)
         maxProd = tempMax
-        
+
         result = maxOf(result, maxProd)
     }
 

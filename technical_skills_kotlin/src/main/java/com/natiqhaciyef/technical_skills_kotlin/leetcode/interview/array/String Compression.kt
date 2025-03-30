@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 fun compressWorst(chars: CharArray): Int {
     if(chars.size <= 1) return chars.size

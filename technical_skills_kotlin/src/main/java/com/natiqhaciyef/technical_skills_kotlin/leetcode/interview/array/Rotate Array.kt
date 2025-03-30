@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview
+package com.natiqhaciyef.technical_skills_kotlin.leetcode.interview.array
 
 fun rotate(nums: IntArray, count: Int): Unit {
     val k = if(count >= nums.size) count % nums.size else count
