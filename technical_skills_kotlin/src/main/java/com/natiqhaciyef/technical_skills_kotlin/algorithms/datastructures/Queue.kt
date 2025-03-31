@@ -1,5 +1,7 @@
 package com.natiqhaciyef.technical_skills_kotlin.algorithms.datastructures
 
+import java.util.*
+
 interface Queue<T: Any> {
     val count: Int
     val isEmpty: Boolean
@@ -31,5 +33,23 @@ class QueueImpl<T: Any>: Queue<T> {
 
     override fun dequeue(): T? {
         return if (isEmpty) null else storage.removeAt(0)
+    }
+}
+
+fun main() {
+    val priorityQueue = PriorityQueue<String>()
+    val queue: java.util.Queue<Double> = LinkedList()
+
+    priorityQueue.add("A")
+    priorityQueue.add("A")
+    priorityQueue.add("N")
+    priorityQueue.add("A")
+    priorityQueue.add("D")
+    priorityQueue.add("B")
+    priorityQueue.add("C")
+    priorityQueue.add("C")
+
+    while(priorityQueue.isNotEmpty()){
+        println(priorityQueue.poll())
     }
 }

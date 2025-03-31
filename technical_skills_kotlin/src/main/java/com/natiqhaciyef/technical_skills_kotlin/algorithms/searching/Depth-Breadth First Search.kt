@@ -293,6 +293,15 @@ fun main() {
     //  4  9    24  48
     // 2
 
+    //  Pre order iterative:
+    //  [12, 8, 4, 2, 9, 41, 24, 48]
+
+    //  In order iterative:
+    //  [2, 4, 8, 9, 12, 24, 41, 48]
+
+    //  Post order iterative:
+    //  [2, 4, 9, 8, 24, 48, 41, 12]
+
     println(binaryTree.bfs())
 
     println("Pre order iterative: ")
