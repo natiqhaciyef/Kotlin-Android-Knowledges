@@ -1,0 +1,164 @@
+Here’s a breakdown of operations (Insert, Remove, Search, and Extras) for different data structures in Kotlin:
+
+---
+
+1. Stack (LIFO - Last In First Out)
+
+val stack = ArrayDeque<Int>()
+stack.addLast(10)  // Insert (Push)
+stack.removeLast() // Remove (Pop)
+stack.last()       // Search (Peek)
+stack.isEmpty()    // Check if stack is empty
+
+---
+
+2. Mutable Map (Hash Table)
+val map = mutableMapOf<Int, String>()
+map[1] = "One"     // Insert
+map.remove(1)      // Remove
+map[1]             // Search
+map.containsKey(1) // Extra: Check if key exists
+
+---
+
+3. Hash Table (Using HashMap)
+val hashTable = hashMapOf<Int, String>()
+hashTable[1] = "One"  // Insert
+hashTable.remove(1)   // Remove
+hashTable[1]          // Search
+hashTable.containsKey(1) // Extra
+
+---
+
+4. Queue (FIFO - First In First Out)
+val queue = ArrayDeque<Int>()
+queue.addLast(5)   // Insert (Enqueue)
+queue.removeFirst() // Remove (Dequeue)
+queue.first()       // Search (Peek)
+queue.isEmpty()     // Check if empty
+
+---
+
+5. Priority Queue (Min Heap by Default)
+val pq = PriorityQueue<Int>()
+pq.add(10)         // Insert
+pq.poll()          // Remove (Extract min)
+pq.peek()          // Search (Min element)
+pq.isEmpty()       // Check if empty
+
+---
+
+6. Tree (Binary Tree - Basic Implementation)
+class TreeNode(val value: Int) {
+    var left: TreeNode? = null
+    var right: TreeNode? = null
+}
+
+val root = TreeNode(5)
+root.left = TreeNode(3)  // Insert
+root.right = TreeNode(7)
+fun search(root: TreeNode?, key: Int): Boolean {
+    return root?.value == key || search(root?.left, key) || search(root?.right, key)
+}
+
+---
+
+7. Trie (Prefix Tree)
+class TrieNode {
+    val children = mutableMapOf<Char, TrieNode>()
+    var isEndOfWord = false
+}
+
+class Trie {
+    private val root = TrieNode()
+
+    fun insert(word: String) {
+        var node = root
+        for (char in word) {
+            node = node.children.computeIfAbsent(char) { TrieNode() }
+        }
+        node.isEndOfWord = true
+    }
+
+    fun search(word: String): Boolean {
+        var node = root
+        for (char in word) {
+            node = node.children[char] ?: return false
+        }
+        return node.isEndOfWord
+    }
+}
+
+val trie = Trie()
+trie.insert("hello")
+trie.search("hello")  // true
+trie.search("hell")   // false
+
+---
+
+8. Linked List
+class ListNode(var value: Int) {
+    var next: ListNode? = null
+}
+
+var head: ListNode? = ListNode(1)
+head?.next = ListNode(2)  // Insert
+fun search(head: ListNode?, key: Int): Boolean {
+    var curr = head
+    while (curr != null) {
+        if (curr.value == key) return true
+        curr = curr.next
+    }
+    return false
+}
+
+---
+
+9. Graph (Adjacency List Representation)
+val graph = mutableMapOf<Int, MutableList<Int>>()
+graph[1] = mutableListOf(2, 3)  // Insert Edge
+graph[2]?.remove(3)            // Remove Edge
+graph.containsKey(1)           // Search for node
+
+---
+
+10. Array
+val arr = intArrayOf(1, 2, 3)
+arr[1]           // Search (index access)
+val newArr = arr.plus(4)  // Insert (create new array)
+
+---
+
+11. Mutable List (Dynamic Array)
+val list = mutableListOf(1, 2, 3)
+list.add(4)      // Insert
+list.remove(2)   // Remove
+list.contains(3) // Search
+list.indexOf(3)  // Extra: Find index
+
+---
+
+12. Heap (Priority Queue - Min Heap)
+val heap = PriorityQueue<Int>()
+heap.add(5)    // Insert
+heap.poll()    // Remove min
+heap.peek()    // Get min
+
+---
+
+## Summary of Operations
+| Data Structure    | Insert                | Remove                    | Search            | Extra |
+|----------------   |--------               |--------                   |--------           |--------|
+| Stack             | addLast()             | removeLast()              | last()            | isEmpty() |
+| Queue             | addLast()             | removeFirst()             | first()           | isEmpty() |
+| Priority Queue    | add()                 | poll()                    | peek()            | isEmpty() |
+| Hash Table (Map)  | put(key, value)       | remove(key)               | get(key)          | containsKey(key) |
+| Tree              | Custom Insert         | Custom Remove             | Custom Search     | - |
+| Trie              | insert(word)          | Custom Remove             | search(word)      | - |
+| Linked List       | ListNode.next         | Custom Remove             | Custom Search     | - |
+| Graph             | graph[node].add(near) | graph[node].remove(near)  | containsKey(node) | - |
+| Array             | plus() (new array)    | drop(index) (new array)   | arr[i]            | - |
+| Mutable List      | add()                 | remove()                  | contains()        | indexOf() |
+| Heap              | add()                 | poll()                    | peek()            | isEmpty() |
+
+Let me know if you need further optimizations or explanations! 🚀

@@ -41,5 +41,3 @@ fun main() {
     val nums = intArrayOf(10, 7, 8, 9, 1, 5)
     println(quickSort(nums, 0, nums.size - 1))
 }
-
-//fun
