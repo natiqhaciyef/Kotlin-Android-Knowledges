@@ -9,134 +9,49 @@ import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import javax.inject.Inject
+import kotlin.math.abs
 import kotlin.system.measureTimeMillis
 
 
-//@HiltViewModel
-//class TempViewModel @Inject constructor(
-//    private val firebaseRepositoryImpl: FirebaseRepositoryImpl
-//) : ViewModel() {
-//    val list = mutableListOf(
-//        CityModel(
-//            name = "Hong Kong",
-//            country = "China",
-//            location = listOf(22.35272358,114.13939953),
-//            averageExpenseForSingleDay = 99.1
-//        ),
-//        CityModel(
-//            name = "Kuala Lumpur",
-//            country = "Malaysia",
-//            location = listOf(3.13850612, 101.68698964),
-//            averageExpenseForSingleDay = 67.5
-//        ),
-//        CityModel(
-//            name = "Seoul",
-//            country = "South Korea",
-//            location = listOf(37.56487579,126.97413907),
-//            averageExpenseForSingleDay = 110.9
-//        ),
-//        CityModel(
-//            name = "Sydney",
-//            country = "Australia",
-//            location = listOf(-33.84824291,150.9319744),
-//            averageExpenseForSingleDay = 141.31
-//        ),
-//        CityModel(
-//            name = "San Francisco",
-//            country = "United States of America",
-//            location = listOf(37.75769987,-122.43760016),
-//            averageExpenseForSingleDay = 187.0
-//        ),
-//
-//        )
-//
-////    CityModel(
-////    name = "",
-////    country = "",
-////    location = listOf(),
-////    averageExpenseForSingleDay = 0.0
-////    ),
-//
-//    init {
-//        list.forEach { city ->
-//            firebaseInitCities(city)
-//        }
-//    }
-//
-//
-//    private fun firebaseInitCities(cityModel: CityModel) {
-//        viewModelScope.launch {
-//            val cMap = hashMapOf<String, Any>()
-//            cMap["name"] = cityModel.name
-//            cMap["country"] = cityModel.country
-//            cMap["location"] = cityModel.location
-//            cMap["averageExpenseForSingleDay"] = cityModel.averageExpenseForSingleDay
-//
-//            firebaseRepositoryImpl.getFirestore().collection("Cities")
-//                .document("${cityModel.name}-${cityModel.country}")
-//                .set(cMap)
-//
-//        }
-//
-//    }
-//
-//}
+fun countGoodTriplets(arr: IntArray, a: Int, b: Int, c: Int): Int {
+    // edge case - if list empty or size less than 3
+    if (arr.size < 3) return 0
 
+    // create loop with arr.size-3
+    // check conditions
+    // count all matched elements (create set for handle this)
+    var count = 0
+    var i = 0
+    var j: Int
+    var k: Int
 
-fun main() {
-    val kotlin = "Empty"
+    while (i < arr.size - 2) {
+        j = i + 1
 
-//    val timeInMillis = measureTimeMillis {
-//        when (kotlin) {
-//            "Empty" -> {
-//                println("Empty")
-//            }
-//
-//            "Nothing" -> {
-//                println("Nothing")
-//            }
-//
-//            else -> {
-//                println("Yoxdu")
-//            }
-//        }
-//    }
+        if (condition(arr[i], arr[j], a))
+        while (j < arr.size - 1) {
+            k = j + 1
 
-//    val timeInMillis = measureTimeMillis {
-//        if (kotlin == "Empty"){
-//            println("Empty")
-//        }else if(kotlin == "Nothing"){
-//            println("Nothing")
-//        }else{
-//            println("Yoxdu")
-//        }
-//    }
-//    println("Time: $timeInMillis")
+            if (condition(arr[i], arr[j], a) && condition(arr[j], arr[k], b))
+            while (k < arr.size) {
+                if (condition(arr[i], arr[j], a)
+                    && condition(arr[j], arr[k], b)
+                    && condition(arr[i], arr[k], c)
+                ) {
+                    println("${arr[i]} - ${arr[j]} - ${arr[k]}")
+                    count++
+                }
 
-    val str = "1.923920"
-
-    println(str.toDouble())
-}
-
-class MathematicalCalculation {
-    fun matrixCalculator() {
-        loop@ for (element in 0..3) {
-            for (subElement in 0..3) {
-                if (subElement > element) break@loop
+                k++
             }
+            j++
         }
+        i++
     }
+
+    return count
 }
 
-
-private fun hashPassword(password: String): String {
-    val messageDigest = MessageDigest.getInstance("SHA-256")
-    val hashBytes = messageDigest.digest(password.toByteArray(StandardCharsets.UTF_8))
-    val hexString = StringBuffer()
-
-    for (byte in hashBytes) {
-        hexString.append(String.format("%02x", byte))
-    }
-
-    return hexString.toString()
+private fun condition(element1: Int, element2: Int, expected: Int): Boolean {
+    return abs((element1 - element2)) <= expected
 }
