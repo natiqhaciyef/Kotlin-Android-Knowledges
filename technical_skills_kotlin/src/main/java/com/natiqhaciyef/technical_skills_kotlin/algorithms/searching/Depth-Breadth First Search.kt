@@ -123,20 +123,20 @@ class BinaryTree {
         if (this.root == null) return listOf()
 
         val result = mutableListOf<Int>()
-        val queue = QueueImpl<BinaryTreeNode>()
+        val queue = ArrayDeque<BinaryTreeNode>()
         var current = this.root!!
-        queue.enqueue(current)
+        queue.addLast(current)
 
         while (queue.size > 0) {
-            current = queue.dequeue()!!
+            current = queue.removeFirst()
             result.add(current.value)
 
             if (current.left != null) {
-                queue.enqueue(current.left!!)
+                queue.addLast(current.left!!)
             }
 
             if (current.right != null) {
-                queue.enqueue(current.right!!)
+                queue.addLast(current.right!!)
             }
         }
 
