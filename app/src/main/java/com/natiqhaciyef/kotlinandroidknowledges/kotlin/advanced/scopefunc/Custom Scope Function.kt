@@ -29,6 +29,29 @@ fun main() {
         add(tripleEntry2)
         println(this)
     }
+
+
+    val str = "hello world"
+
+    str.apply {
+
+    }
+
+    str.let {
+
+    }
+
+    str.also {
+
+    }
+
+    str.run {
+
+    }
+
+    with(str){
+
+    }
 }
 
 
