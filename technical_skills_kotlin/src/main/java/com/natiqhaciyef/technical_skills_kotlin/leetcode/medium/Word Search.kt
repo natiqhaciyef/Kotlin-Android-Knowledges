@@ -28,6 +28,13 @@ fun backtrackToSide(
     if (row !in board.indices || col !in board[0].indices) return false
     if (visited[row][col] || board[row][col] != word[index]) return false
 
+
+    // backtrack with dfs
+    // 1. right
+    // 2. left
+    // 3. bottom
+    // 4. top
+
     visited[row][col] = true
 
     val found = backtrackToSide(board, word, index + 1, row + 1, col, visited) ||
