@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.algorithms.searching
+package com.natiqhaciyef.technical_skills_kotlin.algorithms.special
 
 fun countPrimes(n: Int): Int {
     if (n <= 2) return 0
