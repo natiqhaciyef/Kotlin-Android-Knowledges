@@ -1,4 +1,4 @@
-package com.natiqhaciyef.technical_skills_kotlin.algorithms.special
+package com.natiqhaciyef.technical_skills_kotlin.algorithms.techniques
 
 private fun permute(chars: CharArray, index: Int, result: MutableList<String>) {
     if (index == chars.size - 1) {
