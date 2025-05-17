@@ -3,19 +3,25 @@ package com.natiqhaciyef.technical_skills_kotlin.algorithms.special
 fun dutchNationalFlagSort(arr: IntArray) {
     var low = 0
     var mid = 0
-    var high = arr.lastIndex
+    var high = arr.size-1
 
     while (mid <= high) {
         when (arr[mid]) {
             0 -> {
-                arr[low] = arr[mid].also { arr[mid] = arr[low] }
-                low++
-                mid++
+                val currentLow = arr[low]
+                arr[low] = arr[mid]
+                arr[mid] = currentLow
+                low += 1
+                mid += 1
             }
-            1 -> mid++
+
+            1 -> mid += 1
             2 -> {
-                arr[mid] = arr[high].also { arr[high] = arr[mid] }
-                high--
+                val currentHigh = arr[high]
+                arr[high] = arr[mid]
+                arr[mid] = currentHigh
+
+                high -= 1
             }
         }
     }
