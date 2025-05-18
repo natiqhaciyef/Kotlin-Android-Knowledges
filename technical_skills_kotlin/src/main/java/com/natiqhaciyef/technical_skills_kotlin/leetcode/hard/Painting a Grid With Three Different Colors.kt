@@ -1,9 +1,10 @@
 package com.natiqhaciyef.technical_skills_kotlin.leetcode.hard
 
-private val MOD = 1_000_000_007
 val result = mutableListOf<List<Int>>()
+private val MOD = 1_000_000_007
 
-fun colorTheGrid(m: Int, n: Int): Long {
+// Main function to calculate number of valid grid colorings
+fun colorTheGrid(m: Int, n: Int): Int {
     // Topic: Dynamic Programming
 
     // Inputs
@@ -31,29 +32,42 @@ fun colorTheGrid(m: Int, n: Int): Long {
     // Red = 0
     // Blue = 1
     // Green = 2
+
+
+
+    // Generate all valid colorings for a single column (no vertical adjacent cells share the same color)
     val states = generateValidStates(m)
+
+    // Map each column state to its index for quick reference
     val stateToIndex = states.withIndex().associate { it.value to it.index }
+
+    // Build transition list: for each state, find all valid next states (no horizontal color conflict)
     val transitions = buildTransitions(states)
 
-    val k = states.size
-    var dp = LongArray(k) { 1L } // base case: first column
+    val k = states.size // Number of valid column states
+    var dp = LongArray(k) { 1L } // Base case: each state is valid for the first column
 
+    // Iterate through the columns (from second to nth)
     repeat(n - 1) {
         val nextDp = LongArray(k)
         for (i in 0 until k) {
+            // For each valid transition from current state 'i' to 'j'
             for (j in transitions[i]) {
                 nextDp[j] = (nextDp[j] + dp[i]) % MOD
             }
         }
-        dp = nextDp
+        dp = nextDp // Move to next column
     }
 
-    return dp.sum().toLong() % MOD
+    // Sum all ways to end at each state in the last column
+    return dp.sum().toInt() % MOD
 }
 
+// Generate all valid column colorings of height m
 fun generateValidStates(m: Int): List<List<Int>> {
     val result = mutableListOf<List<Int>>()
 
+    // Recursive backtracking to build each state
     fun backtrack(current: MutableList<Int>) {
         if (current.size == m) {
             result.add(current.toList())
@@ -61,6 +75,7 @@ fun generateValidStates(m: Int): List<List<Int>> {
         }
 
         for (color in 0..2) {
+            // Avoid same color as the cell directly above
             if (current.isEmpty() || current.last() != color) {
                 current.add(color)
                 backtrack(current)
@@ -73,21 +88,30 @@ fun generateValidStates(m: Int): List<List<Int>> {
     return result
 }
 
+// Build valid transitions between states (no two same colors in same row between adjacent columns)
 fun buildTransitions(states: List<List<Int>>): List<List<Int>> {
     val transitions = MutableList(states.size) { mutableListOf<Int>() }
     for (i in states.indices) {
         for (j in states.indices) {
             if (isCompatible(states[i], states[j])) {
-                transitions[i].add(j)
+                transitions[i].add(j) // State j can follow state i
             }
         }
     }
     return transitions
 }
 
+// Check if two columns can be adjacent: no cell in the same row should have the same color
 fun isCompatible(a: List<Int>, b: List<Int>): Boolean {
     for (i in a.indices) {
-        if (a[i] == b[i]) return false
+        if (a[i] == b[i]) return false // Conflict in same row
     }
     return true
+}
+
+// Example usage:
+fun main() {
+    println(colorTheGrid(1, 1)) // Output: 3
+    println(colorTheGrid(1, 2)) // Output: 6
+    println(colorTheGrid(5, 5)) // Output: 580986
 }
