@@ -76,14 +76,3 @@ fun largestPathValue(colors: String, edges: Array<IntArray>): Int {
 
     return result
 }
-fun main() {
-    largestPathValue(
-        colors = "abaca",
-        edges = arrayOf(
-            intArrayOf(0, 1),
-            intArrayOf(0, 2),
-            intArrayOf(2, 3),
-            intArrayOf(3, 4),
-        )
-    )
-}
