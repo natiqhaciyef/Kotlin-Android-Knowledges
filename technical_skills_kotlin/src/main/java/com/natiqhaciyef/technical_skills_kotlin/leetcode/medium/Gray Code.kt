@@ -15,4 +15,5 @@ fun grayCode(n: Int): List<Int> {
 
 fun main() {
     grayCode(4)
+    Int.MAX_VALUE
 }
