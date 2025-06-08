@@ -1,6 +1,5 @@
 package com.natiqhaciyef.kotlinandroidknowledges.kotlin.advanced.clazz
 
-import com.natiqhaciyef.kotlinandroidknowledges.MathematicalCalculation
 
 
 open class OuterClass {
@@ -30,5 +29,5 @@ fun main() {
     val inner = OuterClass().InnerClass()
     val nested = OuterClass.NestedClass()
     println(inner.getInfoAgain())
-    MathematicalCalculation()
+//    MathematicalCalculation()
 }
