@@ -42,7 +42,7 @@ class SegmentTree(size: Int) {
             return
         }
         val mid = (start + end) / 2
-        if (start <= idx && idx <= mid) {
+        if (idx in start..mid) {
             // Index is in the left child's range.
             updateRec(2 * node, start, mid, idx, value)
         } else {
@@ -146,7 +146,7 @@ fun maxDifference(s: String, k: Int): Int {
                 // We need to find a starting prefix `i` such that:
                 // a) freq(c1) = currentP1 - prefixSums[c1][i] is ODD
                 // b) freq(c2) = currentP2 - prefixSums[c2][i] is EVEN
-                //
+
                 // This implies:
                 // a) parity(prefixSums[c1][i]) != parity(currentP1)
                 // b) parity(prefixSums[c2][i]) == parity(currentP2)
