@@ -1,6 +1,6 @@
 package com.natiqhaciyef.technical_skills_kotlin.leetcode.hard
 
-val result = mutableListOf<List<Int>>()
+private val result = mutableListOf<List<Int>>()
 private val MOD = 1_000_000_007
 
 // Main function to calculate number of valid grid colorings
