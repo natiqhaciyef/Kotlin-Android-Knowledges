@@ -2,6 +2,8 @@ package com.natiqhaciyef.kotlinandroidknowledges.kotlin.basics
 
 fun main() {
     println(factorial(6))
+    factorial(10000)
+
 }
 
 // With Parameter and return type
@@ -28,6 +30,18 @@ fun sumOfTwoNumbersPrint() {
 // recursion
 // without using tailrec keyword it can be return stack overflow exception due to huge number input.
 // tailrec support to manage stack memory for recursive functions
-tailrec fun factorial(n: Int): Long {
-    return if (n <= 1) 1L else n * factorial(n - 1)
+var value = 0L
+tailrec fun factorial(n: Int) {
+    if (n <= 1){
+        value = 1L
+        return
+    }
+
+    value *= n
+    factorial(n - 1)
+}
+
+
+fun factorial2(n: Int): Long {
+    return (n * factorial2(n - 1))
 }
