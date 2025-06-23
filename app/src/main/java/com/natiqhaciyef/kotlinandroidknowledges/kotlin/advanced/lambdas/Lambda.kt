@@ -7,16 +7,20 @@ fun main() {
     val item1 = Item("Chair","Wood")
     val item2 = Item("Armchair","Leather")
 
-    // Lambda field example
+    // Lambda expression example
     val createItem: (Item) -> Unit = {
         println("${it.name} created from ${it.material} material")
     }
 
-    // Lambda function example
+    // High-order function example
     centralIndex(place = "Desert"){
         println("Details: $it")
     }
 
+    // Lambda function parameter passing example
+    val createItem2: (String, String)-> Item = { name, material ->
+        Item(name, material)
+    }
     // Lambda function parameter passing example
     val placeDetails: (String)-> Unit = {
         println("Details: $it")
@@ -25,7 +29,7 @@ fun main() {
 }
 
 
-// Lambda examples
+// High-order function examples
 fun centralIndex(place: String,placeDetails: (String) -> Unit) {
     placeDetails(place)
 }
