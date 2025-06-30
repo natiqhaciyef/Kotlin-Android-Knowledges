@@ -51,6 +51,12 @@ android {
                 "-Xjvm-default=all"
         ]
     }
+    kotlin {
+        sourceSets.configureEach {
+            languageSettings.optIn("arrow.core.extensions.Experimental")
+            languageSettings.optIn("kotlin.RequiresOptIn")
+        }
+    }
     buildFeatures {
         viewBinding true
         dataBinding true
@@ -147,6 +153,22 @@ dependencies {
 
     // Work manager
     implementation "androidx.work:work-runtime-ktx:$workVersion"
+
+    // Arrow
+    def arrowVersion = "1.2.0"
+    implementation("io.arrow-kt:arrow-core:$arrowVersion")
+    implementation("io.arrow-kt:arrow-optics:$arrowVersion")
+
+    // Optics
+    implementation("io.arrow-kt:arrow-optics:$arrowVersion")
+//    kapt("io.arrow-kt:arrow-meta:$arrowVersion") // needed for @optics
+    ksp("io.arrow-kt:arrow-optics-ksp-plugin:$arrowVersion") // ✅ KSP plugin!
+
+
+    // Funktionale
+    implementation("org.funktionale:funktionale-all:1.2")
+
+
 
     // Data store Preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
