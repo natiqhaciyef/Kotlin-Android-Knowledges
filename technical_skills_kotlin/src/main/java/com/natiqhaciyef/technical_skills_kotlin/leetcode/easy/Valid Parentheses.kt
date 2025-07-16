@@ -1,6 +1,6 @@
 package com.natiqhaciyef.technical_skills_kotlin.leetcode.easy
 
-fun isValid(sub: String): Boolean {
+private fun isValid(sub: String): Boolean {
     val s = sub.toMutableList().map { it.toString() }.toMutableList()
     if (s.size <= 1)
         return false
