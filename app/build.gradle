@@ -165,8 +165,8 @@ dependencies {
     ksp("io.arrow-kt:arrow-optics-ksp-plugin:$arrowVersion") // ✅ KSP plugin!
 
 
-    // Funktionale
-    implementation("org.funktionale:funktionale-all:1.2")
+//     Funktionale
+//    implementation("org.funktionale:funktionale-all:1.2")
 
 
 
